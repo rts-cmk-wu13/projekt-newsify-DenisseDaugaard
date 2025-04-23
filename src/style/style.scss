@@ -1,52 +1,11 @@
 @use '/src/style/fonts';
-@use '/src/style/variables' as var;
+@use '/src/style/base';
+@use '/src/style/mixins';
+@use '/src/style/variables';
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+@use '/src/style/pages/splash.scss';
+@use '/src/style/pages/onbording.scss';
+@use '/src/style/pages/login.scss';
+@use '/src/style/pages/home.scss';
 
-    body{
-        font-family: 'OpenSans';
-        color: var.$primary-color;
-    }
 
-    h1,
-    h2,
-    h3,
-    .welcome__title{
-    font-family: 'PlayfairDisplay';
-    }
-
-    #app__welcome{
-       
-      .welcome__logo{
-       margin-left: 25%;
-       margin-top: 50%;
-        
-            .welcome__title {
-                font-size: 3rem;
-                font-weight: bold;
-                color: transparent;
-                background-image: linear-gradient(var.$primary-color, var.$primary-color);
-                background-repeat: no-repeat;
-                background-position: -750px 0;
-                background-clip: text;
-                -webkit-background-clip: text;
-                animation: backcolor 3s linear 1 forwards;
-                __:hover{
-                    cursor: pointer;
-                }
-            }
-        
-      }
-      
-    }
-
-    @keyframes backcolor {
-        100% {
-          background-position: 0 0;
-        }
-    }
-      

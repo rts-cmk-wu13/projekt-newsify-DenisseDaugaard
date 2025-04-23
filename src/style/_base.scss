@@ -1,0 +1,36 @@
+@use '/src/style/variables' as var;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+    body{
+        font-family: 'OpenSans';
+        color:var.$primary-color;
+    }
+
+    h1,
+    h2,
+    h3,
+    .welcome__title{
+    font-family: 'PlayfairDisplay';
+    }
+
+    input{
+        font-family:'OpenSans';
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    
+
+    

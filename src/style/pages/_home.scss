@@ -1,0 +1,66 @@
+@use '/src/style/variables' as var;
+@use '/src/style/mixins' as mix;
+
+
+#app__home{
+
+    header{
+        margin-bottom: 2rem;
+    }
+   
+    padding-top: 3rem;
+    .top__logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 2.5rem;
+        .logo{
+            width: 1.35rem;
+        }
+        h2{
+           font-size: 1.81rem;
+           font-weight: bolder;
+        }
+    }
+
+    .search{
+        background-color: rgb(217, 217, 217, 0.3);
+        border: none;
+        padding: 1rem;
+        width: 90%;
+       display: flex;
+       justify-self: center;
+       font-size: 1rem;
+    }
+
+    /* ----------main------ */
+
+    .news__articles{
+        .news__header{
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            border: 1px solid var.$dot-color;
+
+            .logo{
+                width: 1rem;
+            }
+        }
+
+        .news__content{
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+
+            figure{
+                width: 10rem;
+                height: 5rem;
+                background-color: grey;
+            }
+        }
+       
+    }
+}
+
+
