@@ -6,7 +6,7 @@ document.querySelector('#app__login').innerHTML = `
    <article>
 
         <section class="welcome__logo">
-            <img class="logo" src="/public/img/newsify_logo.svg" alt="LOGO">
+            <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
             <h1 class="welcome__title">Newsify</h1>
         </section>    
 

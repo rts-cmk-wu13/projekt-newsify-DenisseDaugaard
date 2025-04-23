@@ -4,7 +4,7 @@ import homeData from './more/home-data.js'
 document.querySelector('#app__home').innerHTML = `
 <header>
     <div class="top__logo">
-        <img class="logo" src="/public/img/newsify_logo.svg" alt="LOGO">
+        <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
         <h2>Newsify</h2>
     </div>
 
@@ -19,19 +19,19 @@ document.querySelector('#app__home').innerHTML = `
 <footer>
     <div class="footer__nav">
         <section class="nav__icon">
-        <img class="logo" src="/public/img/home.svg" alt="image of an icon"
+        <img class="logo" src="/img/home.svg" alt="image of an icon"
         <p>Home</p> 
         </section>
         <section class="nav__icon">
-        <img class="logo" src="/public/img/save2.svg" alt="image of an icon"
+        <img class="logo" src="/img/save2.svg" alt="image of an icon"
         <p>Home</p> 
         </section>
         <section class="nav__icon">
-        <img class="logo" src="/public/img/favorite.svg" alt="image of an icon"
+        <img class="logo" src="/img/favorite.svg" alt="image of an icon"
         <p>Home</p> 
         </section>
         <section class="nav__icon">
-        <img class="logo" src="/public/img/settings.svg" alt="image of an icon"
+        <img class="logo" src="/img/settings.svg" alt="image of an icon"
         <p>Home</p> 
         </section>
     </div>
