@@ -28,7 +28,7 @@ fetchTopStories().then((allSections) => {
      <section class="news__articles">
             <details name="category">
                 <summary class="news__header">
-                <img class="logo" src="/public/img/newsify_logo.svg" alt="LOGO">
+                <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
                 <h3 class="news__categories">${category.section}</h3></summary>
                 ${category.articles.map(news => `
                     <div class="news__content">
