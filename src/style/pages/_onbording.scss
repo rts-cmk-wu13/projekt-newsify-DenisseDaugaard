@@ -1,14 +1,15 @@
 @use '/src/style/variables' as var;
 @use '/src/style/mixins' as mix;
 
-#app__onbording{
-    position: relative;
 
+  
     button{
         @include mix.button;
     }
     .carousel{
         margin-top: 3rem;
+        position: relative;
+        z-index: 1; //
         .carousel__card {
             position: absolute;
             opacity: 0;
@@ -75,4 +76,3 @@
            }
         }
     }
-}
