@@ -28,10 +28,16 @@
         object-fit: cover;
     }
 
+   
+
     a{
         text-decoration: none;
     }
 
-    
+    a.active{
+        color: green;
 
-    
+        img.footer__logo {
+            filter: brightness(0) saturate(100%) invert(39%) sepia(98%) saturate(686%) hue-rotate(81deg) brightness(92%) contrast(86%);
+        }
+    }
