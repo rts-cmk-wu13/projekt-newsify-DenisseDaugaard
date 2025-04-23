@@ -39,6 +39,19 @@
     /* ----------main------ */
 
     .news__articles{
+
+        details > summary::after { 
+            content:url('/public/img/arrow__close.svg');
+            transition: transform 0.3s;
+            margin-left: auto;
+            transform-origin: center center;
+        }
+        
+         details[open] > summary::after {
+            transform: rotate(90deg);
+        }
+       
+        
         .news__header{
             display: flex;
             gap: 0.5rem;
@@ -63,7 +76,9 @@
                 width: 8rem;
                 border-radius: 1rem;
             }
-
+           
+        /* ---------------------------------- */
+       
         }
        
     }

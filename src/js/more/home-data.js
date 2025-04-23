@@ -1,43 +1,4 @@
 export default async function homeData() {
-//     const res = await fetch('https://api.nytimes.com/svc/topstories/v2/health.json?api-key=7AfIlWjRMps6WnJ6UEhv3UDuoO5pigTz');
-//     if (!res.ok) throw new Error("Failed to fetch");
-//     const data = await res.json();
-    
-//     const topArticles = data.results
-//     .filter(article => article.title && article.title.trim() !== "")
-//     .slice(0, 5);
-//     console.log(topArticles);
-
-//    let articleElm = document.createElement("article");
-//    articleElm.classList.add("news");
-//    articleElm.innerHTML= `
-
-//         <section class="news__articles">
-//              name="category"
-//                 <summary class="news__header">
-//                 <img class="logo" src="/public/img/newsify_logo.svg" alt="LOGO">
-//                 <h3>HEALTH</h3></summary>
-//                ${topArticles.map(art => `
-//                      <div class="news__content">
-//                         <figure class="news__img__container">
-//                            <img class="news__img" src="${art.multimedia?.[1]?.url || '/public/img/fallback.jpg'}" alt="${art.title}">
-
-//                         </figure>
-
-//                         <section class="news__text">
-//                             <h4>${art.title}</h4>
-//                             <p>${art.abstract}</p>
-//                         </section>
-//                 </div>        
-               
-//                `)}
-//             </details>
-//         </section>
-// `
-//     document.querySelector("main").append(articleElm);
-
-//     return articleElm;
-
 const sections = ['health', 'politics', 'travel', 'Business'];
 const apiKey = '7AfIlWjRMps6WnJ6UEhv3UDuoO5pigTz';
 
