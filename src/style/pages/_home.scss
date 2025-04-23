@@ -41,13 +41,18 @@
 
         details > summary::after { 
             content:url('/img/arrow__close.svg');
-            transition: transform 0.3s;
+            transition: transform 0.5s;
             margin-left: auto;
             transform-origin: center center;
         }
         
          details[open] > summary::after {
             transform: rotate(90deg);
+
+            /* check this after push */
+            transition: transform 0.5s;
+            margin-left: auto;
+            transform-origin: center center;
         }
        
         
@@ -94,16 +99,17 @@
         display: grid;
         grid-template-columns: repeat(4,1fr);
         box-shadow: 0px -8px 16px rgba(0, 0, 0, 0.2);
-        .nav__icon{
+       
+        a{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 1rem;
 
-            .logo{
-                width: 1.5rem;
-            }
+            .footer__logo{
+                width:1.5rem;
+            } 
         }
     }
 }

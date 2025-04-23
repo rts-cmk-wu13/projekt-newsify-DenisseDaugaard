@@ -2,7 +2,7 @@
 
 #app__welcome{
    
-  .welcome__logo{
+  .welcome{
     position: fixed; 
     top: 0;
     left: 0;
@@ -17,9 +17,9 @@
     align-items: center;
 
     animation: slideUpFade 1s ease forwards;
-    animation-delay: 4s;
+    animation-delay: 5s;
     
-        .logo{
+        .welcome__logo{
           width: 10rem; 
           height: auto;
           animation: logo 3.5s forwards ease;

@@ -8,8 +8,8 @@ document.querySelector('#app__home').innerHTML = `
         <h2>Newsify</h2>
     </div>
 
-    <form>
-        <input class="search" type="text" placeholder="Search news">
+    <form action="get">
+        <input class="search" type="search" placeholder="Search news">
     </form>
 
 </header>
@@ -19,22 +19,42 @@ document.querySelector('#app__home').innerHTML = `
 <footer>
     <div class="footer__nav">
         <section class="nav__icon">
-        <img class="logo" src="/img/home.svg" alt="image of an icon"
-        <p>Home</p> 
+            <a href="home.html">
+                <img class="footer__logo" src="/img/home.svg" alt="image of an icon"
+                <p>Home</p> 
+            </a>
         </section>
         <section class="nav__icon">
-        <img class="logo" src="/img/save2.svg" alt="image of an icon"
-        <p>Home</p> 
+            <a href="archive.html">
+                <img class="footer__logo" src="/img/save2.svg" alt="image of an icon"
+                <p>Archive</p> 
+            </a>
         </section>
         <section class="nav__icon">
-        <img class="logo" src="/img/favorite.svg" alt="image of an icon"
-        <p>Home</p> 
+            <a href="popular.html">
+                <img class="footer__logo" src="/img/favorite.svg" alt="image of an icon"
+                <p>Popular</p> 
+            </a>
         </section>
         <section class="nav__icon">
-        <img class="logo" src="/img/settings.svg" alt="image of an icon"
-        <p>Home</p> 
+            <a href="settings.html">
+                <img class="footer__logo" src="/img/settings.svg" alt="image of an icon"
+                <p>Settings</p> 
+            </a>
         </section>
     </div>
 </footer>
 `
 homeData()
+
+
+console.log(document.querySelectorAll("a"));
+
+
+document.querySelectorAll('a').forEach(link => {
+    if (link.pathname === window.location.pathname) {
+      link.classList.add('active');
+    }
+})
+  
+  
