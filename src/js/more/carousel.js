@@ -1,7 +1,9 @@
 export default function carousel() {
     let carousel = document.querySelector(".carousel")
     let carousel__cards = carousel.querySelectorAll(".carousel__card")
+    let continueBtn = carousel.querySelector(".continue")
     let slidePosition = 0
+    console.log(continueBtn);
     
   
     // **dots**
@@ -60,6 +62,8 @@ export default function carousel() {
             }
             showSilde (slidePosition)
         }
+
+        continueBtn.addEventListener("click", NextSlide)
             
     /** >>>>>>>>>>>Show a single slide I <<<<<< **/
         function showSilde (index){
