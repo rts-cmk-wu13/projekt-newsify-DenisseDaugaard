@@ -5,10 +5,8 @@ document.querySelector('#app__welcome').innerHTML = `
 <main>
 
     <div class="welcome__logo">
-    <a href="onboarding.html">
-        <img class="logo" src="/public/img/newsify_logo.svg" alt="LOGO">
-        <h1 class="welcome__title">Newsify</h1>
-    </a>    
+       <img src="/img/newsify_logo.svg" alt="logo">
+        <h1 class="welcome__title">Newsify</h1>  
     </div>
 
 
@@ -16,7 +14,7 @@ document.querySelector('#app__welcome').innerHTML = `
 
         <article class="carousel__card">
              <figure class="">
-                 <img class="background__img" src="/public/img/Onboarding 2.png" alt="image of a smartphone">
+                 <img class="background__img" src="/img/Onboarding 2.png" alt="image of a smartphone">
             </figure>
             <section class="carousel__text">
                 <h2>Stay Connected,Everywhere, Anytime</h2>
@@ -26,7 +24,7 @@ document.querySelector('#app__welcome').innerHTML = `
 
         <article class="carousel__card">
              <figure class="background__img__container">
-             <img class="background__img" src="/public/img/Onboarding 3.png" alt="image of a smartphone">
+             <img class="background__img" src="/img/Onboarding 3.png" alt="image of a smartphone">
             </figure>
              <section class="carousel__text">
                 <h2>Become a Savvy Global Citizen.</h2>
