@@ -34,7 +34,7 @@ document.querySelector('#app__welcome').innerHTML = `
 
         <article class="carousel__card">
             <figure class="">
-             <img class="background__img" src="/public/img/Onboarding 4.png" alt="image of a smartphone">
+             <img class="background__img" src="/img/Onboarding 4.png" alt="image of a smartphone">
             </figure>
             <section class="carousel__text">
                 <h2>Enhance your News Journey Now!</h2>
