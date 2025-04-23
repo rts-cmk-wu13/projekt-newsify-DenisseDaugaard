@@ -5,10 +5,8 @@ document.querySelector('#app__welcome').innerHTML = `
 <main>
 
     <div class="welcome__logo">
-    <a href="onboarding.html">
-        <img class="logo" src="/public/img/newsify_logo.svg" alt="LOGO">
-        <h1 class="welcome__title">Newsify</h1>
-    </a>    
+       <img src="/img/newsify_logo.svg" alt="logo">
+        <h1 class="welcome__title">Newsify</h1>  
     </div>
 
 
