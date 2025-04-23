@@ -14,11 +14,27 @@ document.querySelector('#app__home').innerHTML = `
 
 </header>
 
-<main> 
-  
-</main>
+<main> </main>
 
 <footer>
+    <div class="footer__nav">
+        <section class="nav__icon">
+        <img class="logo" src="/public/img/home.svg" alt="image of an icon"
+        <p>Home</p> 
+        </section>
+        <section class="nav__icon">
+        <img class="logo" src="/public/img/save2.svg" alt="image of an icon"
+        <p>Home</p> 
+        </section>
+        <section class="nav__icon">
+        <img class="logo" src="/public/img/favorite.svg" alt="image of an icon"
+        <p>Home</p> 
+        </section>
+        <section class="nav__icon">
+        <img class="logo" src="/public/img/settings.svg" alt="image of an icon"
+        <p>Home</p> 
+        </section>
+    </div>
 </footer>
 `
 homeData()

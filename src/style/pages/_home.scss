@@ -3,7 +3,6 @@
 
 
 #app__home{
-
     .logo{
         width: 1.35rem;
     }
@@ -76,12 +75,38 @@
                 width: 8rem;
                 border-radius: 1rem;
             }
-           
-        /* ---------------------------------- */
        
         }
        
     }
+
+    /* ----------------footer------------------ */
+    
+    footer{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 100; /* Make sure it's on top */
+
+    }
+    .footer__nav{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        box-shadow: 0px -8px 16px rgba(0, 0, 0, 0.2);
+        .nav__icon{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+
+            .logo{
+                width: 1.5rem;
+            }
+        }
+    }
 }
+
 
 
