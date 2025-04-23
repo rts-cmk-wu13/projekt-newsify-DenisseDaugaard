@@ -4,6 +4,10 @@
 
 #app__home{
 
+    .logo{
+        width: 1.35rem;
+    }
+    
     header{
         margin-bottom: 2rem;
     }
@@ -15,9 +19,7 @@
         justify-content: center;
         gap: 0.5rem;
         margin-bottom: 2.5rem;
-        .logo{
-            width: 1.35rem;
-        }
+       
         h2{
            font-size: 1.81rem;
            font-weight: bolder;
@@ -48,16 +50,20 @@
             }
         }
 
+        .news__categories{
+            text-transform: uppercase;
+        }
+
         .news__content{
             display: flex;
             gap: 1rem;
             padding: 1rem;
 
-            figure{
-                width: 10rem;
-                height: 5rem;
-                background-color: grey;
+            .news__img{
+                width: 8rem;
+                border-radius: 1rem;
             }
+
         }
        
     }
