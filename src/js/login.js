@@ -3,30 +3,31 @@ import '/src/style/style.scss'
 
 document.querySelector('#app__login').innerHTML = `
 <main>
-    <figure>
-     <img src="/public/img/Onboarding 2.png" alt="image of a smartphone">
-    </figure>
-     <div class="carousel">
-        <section class="carousel__card">
-            <h2>Stay Connected,Everywhere, Anytime</h2>
-            <p>Welcome to Newsify, your ultimate destination for breaking news, exclusive stories, and tailored content.</p>
-        </section>
-        <section class="carousel__card">
-        </section>
-        <section class="carousel__card">
-        </section>
+   <article>
 
-        <div class="dots">
-             <div class="dot"></div>
-             <div class="dot active"></div>
-             <div class="dot"></div>
+        <section class="welcome__logo">
+            <img class="logo" src="/public/img/newsify_logo.svg" alt="LOGO">
+            <h1 class="welcome__title">Newsify</h1>
+        </section>    
+
+        <p>Welcome! Let’s dive into your account!</p>
+
+        <div class="login__btns">
+            <button class="login__btn">Continue with Facebook</button>
+            <button class="login__btn">Continue with Google</button>
         </div>
 
-        <div class="carousel__btns">
-            <button class="skip">Skip</button>
-            <button class="continue">Continue</button>
+        <div class="divider">
+            <span>or</span>
         </div>
-     </div>
+
+        <form  action="home.html">
+        <button class="sigin__btn">Sign in with password</button>
+        </form>
+    
+        <p>Don’t have an account? <span class="color__text">Sign up</span></p>
+   </article>
 </main>
-
 `
+
+

@@ -1,8 +1,8 @@
 # Projektdokumentation
 
 **Navn:** 
-
-**Hold:** WUxx
+Denisse Dauggard
+**Hold:** WU13
 
 **Uddannelse:** Webudvikler
 
@@ -28,7 +28,7 @@
 
 (Hvilke node-pakker har du installeret for at dit projekt virker? Beskriv kort hvilket "problem" hver pakke løser.)
 
----
+---npm create vite@latest .
 
 ### Argumentation for de valg du selvstændigt har truffet under løsningen af opgaven
 
