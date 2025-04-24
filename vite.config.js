@@ -11,6 +11,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         login: resolve(__dirname, 'login.html'), 
         home: resolve(__dirname, 'home.html'), 
+        settings: resolve(__dirname, 'settings.html'), 
       },
     },
   },

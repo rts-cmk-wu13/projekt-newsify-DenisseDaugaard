@@ -2,10 +2,20 @@
 @use '/src/style/mixins' as mix;
 
 
-#app__home{
+#app__home,
+#app__settings{
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    main{
+        flex:1;
+        padding-bottom:5rem;
+    }
 
     article {
-        .news__articles:nth-last-child(-n+3) {
+        .news__articles:not(:first-of-type){
             border-bottom: 1px solid var.$light-grey-color;
             // background-color: lightpink;
         }
@@ -84,7 +94,7 @@
             }
         }
 
-        .news__categories{
+        .news__category{
             text-transform: uppercase;
         }
        
@@ -111,17 +121,15 @@
     /* ----------------footer------------------ */
     
     footer{
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: white;
-            z-index: 100; /* Make sure it's on top */
-
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+        box-shadow: 0px -8px 16px rgba(0, 0, 0, 0.2);
     }
-    .footer__nav{
+    .footer__nav{  //chech the position 
         display: grid;
         grid-template-columns: repeat(4,1fr);
-        box-shadow: 0px -8px 16px rgba(0, 0, 0, 0.2);
        
         a{
             display: flex;

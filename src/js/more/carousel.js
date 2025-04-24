@@ -14,10 +14,12 @@ export default function carousel() {
     let changer
     
     /**>>>>>>>>>> Changer VI <<<<<<<<**/
-    function changeAutomatic(){
-        changer = setInterval(function(){
-            NextSlide ()
-        }, 6000);
+    function changeAutomatic() {
+        setTimeout(() => {
+            changer = setInterval(function () {
+                NextSlide()
+            }, 4000)
+        }, 4500) // Delay before the first slide change
     }
     
     carousel.addEventListener("mouseenter", function (){
