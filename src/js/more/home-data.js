@@ -37,11 +37,11 @@ fetchTopStories().then((allSections) => {
                         </figure>
 
                         <section class="news__text">
-                            <h4>${news.title}</h4>
+                            <h5>${news.title}</h5>
                             <p>${news.abstract}</p>
                         </section>
                     </div>    
-                `)}
+                `).join("")}
             </details>
         </section>
       
