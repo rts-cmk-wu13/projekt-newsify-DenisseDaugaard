@@ -1,4 +1,5 @@
 import '/src/style/style.scss'
+import darkMode from './more/dark-mode.js'
 
 
 document.querySelector('#app__login').innerHTML = `
@@ -7,7 +8,7 @@ document.querySelector('#app__login').innerHTML = `
 
         <section class="welcome__logo">
             <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
-            <h1 class="welcome__title">Newsify</h1>
+            <h1>Newsify</h1>
         </section>    
 
         <p>Welcome! Let’s dive into your account!</p>
@@ -30,4 +31,4 @@ document.querySelector('#app__login').innerHTML = `
 </main>
 `
 
-
+darkMode()

@@ -7,7 +7,8 @@
         @include mix.button;
     }
     .carousel{
-        margin-top: 3rem;
+        height: 100vh;
+        margin-top: 2rem;
         position: relative;
         z-index: 1; //
         .carousel__card {
@@ -17,12 +18,12 @@
             padding: 0 1rem;
            .background__img__container{
             position: relative;
+        
            }
             .carousel__text{
                 position: absolute;
                 bottom: 0;
-                background-color: white;
-                padding: 2rem 1rem;
+                padding: 2rem 1rem 5rem;
                 text-align: center;
                 >*{
                     margin-bottom: 1rem;
@@ -42,7 +43,7 @@
             justify-content: center;
             gap: 0.5rem;
             position: absolute;
-            bottom: -42rem;
+           top: 75%;
             width: 100%;
             .carousel__dot{
                 width: 1rem;
@@ -63,7 +64,7 @@
             justify-content:center;
             gap: 1rem;
             position: absolute;
-            bottom: -47rem;
+           top: 82%;
             width: 100%;
            .skip{
                border: 1px solid var.$secundary-color ;

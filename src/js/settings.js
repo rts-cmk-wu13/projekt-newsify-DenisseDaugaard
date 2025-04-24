@@ -1,21 +1,18 @@
 import '/src/style/style.scss'
-import homeData from './more/home-data.js'
-import darkMode from './more/dark-mode.js'
+import settingsData from './more/settings-data.js';
+import darkMode from './more/dark-mode.js';
 
-document.querySelector('#app__home').innerHTML = `
-<header>
+
+document.querySelector('#app__settings').innerHTML = `
+ <header>
     <div class="top__logo">
         <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
         <h2>Newsify</h2>
     </div>
-
-    <form action="home.html">
-        <input class="search" type="search" name="name" id="id" placeholder="Search news">
-    </form>
-
+ 
 </header>
 
-<main> </main>
+<main></main>
 
 <footer>
     <div class="footer__nav">
@@ -46,26 +43,16 @@ document.querySelector('#app__home').innerHTML = `
     </div>
 </footer>
 `
-homeData()
+settingsData()
 darkMode()
 
+console.log(document.querySelectorAll("a"));
 
-console.log(document.querySelectorAll("a"));   /// make it a function 
 
 document.querySelectorAll('a').forEach(link => {
     if (link.pathname === window.location.pathname) {
       link.classList.add('active');
     }
 })
-
-
-document.querySelector('.search').addEventListener('input', function (event) {
-    const query = event.target.value.toLowerCase();
-    // filterNews(query);
-    console.log(query);
-  });
   
   
-  console.log( document.querySelectorAll(".news__category"))
-   
-   
