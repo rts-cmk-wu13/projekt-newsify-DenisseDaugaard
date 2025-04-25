@@ -1,12 +1,12 @@
 export default function darkMode() {
     const backgroiundImages = document.querySelectorAll(".background__img")
-    console.log(backgroiundImages);
+    //console.log(backgroiundImages);
     
 
 
     const rootElm = document.documentElement;
     const darkModeBtn = rootElm.querySelector(".dark__mode");
-    console.log(darkModeBtn);
+    //console.log(darkModeBtn);
 
     const isDarkMode = readFromLocalStorage("isDarkMode");
     const browserPrefersDark = window.matchMedia("(prefers-color-scheme:dark)").matches;
@@ -26,9 +26,9 @@ export default function darkMode() {
     }
  
     if (backgroiundImages && rootElm.getAttribute("data-dark") === "true") {
-        console.log("Images found and dark mode is true")
-        backgroiundImages.forEach((img, index) => {
-            const newSrc = `/img/Onboarding-dark-${index + 2}.png`; // this works because of the name
+        //console.log("Images found and dark mode is true")
+        backgroiundImages.forEach((img, i) => {
+            const newSrc = `/img/Onboarding-dark-${i + 2}.png`; // this works because of the name
                                                                     //if the img files start in 2
             img.src = newSrc;
         });

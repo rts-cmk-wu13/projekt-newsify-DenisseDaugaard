@@ -22,7 +22,7 @@ document.querySelector('#app__login').innerHTML = `
             <span>or</span>
         </div>
 
-        <form  action="home.html">
+        <form  action="settings.html">
         <button class="sigin__btn">Sign in with password</button>
         </form>
     

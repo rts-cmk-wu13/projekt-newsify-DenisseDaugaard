@@ -75,8 +75,6 @@
         
          details[open] > summary::after {
             transform: rotate(90deg);
-
-            /* check this after push */
             transition: transform 0.5s;
             margin-left: auto;
             transform-origin: center center;
