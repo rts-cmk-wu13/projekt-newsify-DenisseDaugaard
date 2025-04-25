@@ -46,7 +46,7 @@ document.querySelector('#app__settings').innerHTML = `
 settingsData()
 darkMode()
 
-console.log(document.querySelectorAll("a"));
+//console.log(document.querySelectorAll("a"));
 
 
 document.querySelectorAll('a').forEach(link => {
