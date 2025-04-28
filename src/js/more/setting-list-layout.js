@@ -1,6 +1,7 @@
 
-
+import checkBox from "./checkbox.js";
 export default function settingsList(dataOrigin) {
+  
     let articleElm = document.createElement("article")
     articleElm.classList.add("settings__categories")
     articleElm.innerHTML = `
@@ -13,7 +14,7 @@ export default function settingsList(dataOrigin) {
           <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
           <h3 class="news__category">${category.section}</h3>
           <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" checked>
             <span class="slider round"></span>
           </label>         
         </section>      
@@ -23,5 +24,7 @@ export default function settingsList(dataOrigin) {
     `
     document.querySelector("main").innerHTML = ""; // Clear existing content
     document.querySelector("main").append(articleElm)
-  
+    
+    checkBox()
+   
 }

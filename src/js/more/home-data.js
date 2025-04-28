@@ -6,18 +6,18 @@ import newYorkTimes from "./new-york-times.js";
 export default async function homeData() {
 
   const mySavedSetting = readFromLocalStorage('newsCategories')
-  console.log(mySavedSetting);
+  //console.log(mySavedSetting);
 
   if(mySavedSetting){
     newsBody(mySavedSetting)
     
   }else{
-    newYorkTimes()
+
+   newYorkTimes().then(data =>{
+    newsBody(data)
+   })
    
 }
-
-
-
 
 
 }
