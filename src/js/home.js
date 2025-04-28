@@ -50,7 +50,7 @@ homeData()
 darkMode()
 
 
-console.log(document.querySelectorAll("a"));   /// make it a function 
+//console.log(document.querySelectorAll("a"));   /// make it a function 
 
 document.querySelectorAll('a').forEach(link => {
     if (link.pathname === window.location.pathname) {
@@ -58,14 +58,14 @@ document.querySelectorAll('a').forEach(link => {
     }
 })
 
-
-document.querySelector('.search').addEventListener('input', function (event) {
-    const query = event.target.value.toLowerCase();
-    // filterNews(query);
-    console.log(query);
-  });
+// // for the search input......
+// document.querySelector('.search').addEventListener('input', function (event) {
+//     const query = event.target.value.toLowerCase();
+//     console.log(query);
+    
+//   })
   
   
-  console.log( document.querySelectorAll(".news__category"))
+  //console.log( document.querySelectorAll(".news__category"))
    
    

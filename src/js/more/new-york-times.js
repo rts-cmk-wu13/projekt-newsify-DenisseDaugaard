@@ -1,18 +1,16 @@
-import newsBody from "./home-news-layout.js";
 
 
-export default function newYorkTimes() {
+export default  async  function newYorkTimes() {
+
+    const sections = ["arts",
+      "automobiles","books/review","business","fashion","food",
+      "health","home","insider","magazine","movies","nyregion",
+      "obituaries","opinion","politics","realestate",
+      "science","sports","sundayreview","technology","theater",
+      "t-magazine","travel","upshot","us","world"]
     
-const sections = ["arts",
-    "automobiles","books/review","business","fashion","food",
-    "health","home","insider","magazine","movies","nyregion",
-    "obituaries","opinion","politics","realestate",
-    "science","sports","sundayreview","technology","theater",
-    "t-magazine","travel","upshot","us","world"]
-  
-  const apiKey = '7AfIlWjRMps6WnJ6UEhv3UDuoO5pigTz';
-  
-  async function fetchTopStories() {
+    const apiKey = '7AfIlWjRMps6WnJ6UEhv3UDuoO5pigTz';
+
     const results = [];
   
     for (const section of sections) {
@@ -24,13 +22,11 @@ const sections = ["arts",
           .slice(0, 10)})
       }
     }
+    
+    console.log(results);
+    
   
     return results;
   }
+  
 
-  fetchTopStories().then((allSections =>{
-    newsBody(allSections)
-
-  }))
-    
-}

@@ -1,4 +1,7 @@
+
+
 export default function newsBody(dataOrigin) {
+   
     let articleElm = document.createElement("article")
     articleElm.classList.add("news")
     articleElm.innerHTML= `
@@ -7,7 +10,7 @@ export default function newsBody(dataOrigin) {
               <details name="categories">
                   <summary class="news__header">
                   <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
-                  <h3 class="news__category">${category.section}</h3></summary>//
+                  <h3 class="news__category">${category.section}</h3></summary>
                   ${category.articles.map(news => `
                       <div class="news__content">
                           <figure class="news__img__container">
@@ -22,11 +25,21 @@ export default function newsBody(dataOrigin) {
                   `).join("")}
               </details>
           </section>
-        
-  
       `).join("")}
     `
+    dataOrigin.forEach( category => {
+        console.log(category.disabled);
+        if(category.disabled){
+            console.log("this is disabled")
+        }else{
+            console.log("this is NOT disabled")
+        }
+    })
+    
     document.querySelector("main").append(articleElm)
+    
     
     return articleElm
 }
+
+

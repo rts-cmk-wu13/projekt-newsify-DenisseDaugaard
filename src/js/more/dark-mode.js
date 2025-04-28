@@ -1,3 +1,6 @@
+import { readFromLocalStorage } from "./local-storage.js";
+import saveToLocalStorage from "./local-storage.js";
+
 export default function darkMode() {
     const backgroiundImages = document.querySelectorAll(".background__img")
     //console.log(backgroiundImages);
@@ -35,18 +38,7 @@ export default function darkMode() {
     
     }
 
-    
 
-
-
-    function saveToLocalStorage(key, value) {
-        localStorage.setItem(key, JSON.stringify(value));
-    }
-
-    function readFromLocalStorage(key) {
-        return JSON.parse(localStorage.getItem(key));
-    }
-   
 }
 
 
