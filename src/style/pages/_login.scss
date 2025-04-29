@@ -20,11 +20,13 @@
 
         button{
             border:1px solid var.$dot-color;
+            border-radius: 1.5rem;
             @include mix.button;
         }
 
         .login__btns button{
             margin-bottom: 1rem;
+         
         }
 
         .divider {
