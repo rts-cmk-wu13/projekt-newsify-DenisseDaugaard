@@ -64,6 +64,10 @@
 
     /* ----------main------ */
 
+    .news{
+        touch-action: none;
+    }
+
     .news__articles{
 
         details > summary::after { 
@@ -100,7 +104,7 @@
 
         .news__content {
             position: relative;
-            
+            overflow: clip; 
         }
        
         .swipe__content{
@@ -109,7 +113,6 @@
             padding: 1rem;
             border-bottom: 1px solid var.$light-grey-color;
             transition: transform 0.3s ease;
-            overflow: hidden;
 
             .news__img{
                 width: 5rem;
@@ -128,17 +131,26 @@
             border: none;
             border-radius: none;
             position: absolute;
-            right: -10.1rem;
+            right: -101%;
             top: 0;
             bottom: 0;
-            width: 10rem;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
             .swipe__del__img{
-                width: 1rem;
+                width: 5rem;
+                height: auto;
+                margin-right: auto;
+            }
+
+        }
+         .save__btn{
+            background-color: var.$save-color;
+            border: none;
+            border-radius: none;
+            position: absolute;
+            left: -101%;
+            top: 0;
+            bottom: 0;
+            .swipe__save__img{
+                width: 5rem;
             }
 
         }

@@ -24,7 +24,7 @@ export default function swipeToDelete() {
         if (!activeSwipe) return
         let diffX = currentX - startX
         if (diffX < -swipeThreshold) {
-          activeSwipe.style.transform = `translateX(-80px)`; // Show delete button
+          activeSwipe.style.transform = `translateX(-380px)`; // Show delete button
         } else {
           activeSwipe.style.transform = `translateX(0px)`; // Snap back
         }

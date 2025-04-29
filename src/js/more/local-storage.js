@@ -10,5 +10,5 @@
   }
 
   export function deleteFromLocalStorage(){
-    
+    return localStorage.removeItem()
   }

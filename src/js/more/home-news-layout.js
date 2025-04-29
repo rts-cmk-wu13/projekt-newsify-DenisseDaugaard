@@ -1,4 +1,5 @@
 import swipeToDelete from "./swipe-delete.js"
+import swipeSave from "./swipe-save-and-delete.js"
 
 export default function newsBody(dataOrigin) {
 
@@ -26,8 +27,9 @@ export default function newsBody(dataOrigin) {
                                     <h5>${news.title}</h5>
                                     <p>${news.abstract}</p>
                                 </section>
+                                <button class="delete__btn"><img class="swipe__del__img" src="/img/delete.svg" alt="image of a trashcan"></button>
+                                <button class="save__btn"><img class="swipe__save__img" src="/img/save.svg" alt="image of a trashcan"></button>
                             </div>      
-                          <button class="delete__btn"><img class="swipe__del__img" src="/img/delete.svg" alt="image of a trashcan"></button>
                         </div>    
                   `).join("")}
               </details>
@@ -35,7 +37,8 @@ export default function newsBody(dataOrigin) {
       `).join("")}
     `
     document.querySelector("main").append(articleElm)
-    swipeToDelete()
+    // swipeToDelete()
+    swipeSave()
 
 
     return articleElm
