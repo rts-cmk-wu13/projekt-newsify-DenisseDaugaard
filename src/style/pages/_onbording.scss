@@ -64,16 +64,19 @@
             justify-content:center;
             gap: 1rem;
             position: absolute;
-           top: 82%;
+            top: 82%;
             width: 100%;
+            
            .skip{
                border: 1px solid var.$secundary-color ;
                color:var.$secundary-color;
                width: 10rem;
+               border-radius: 1.5rem;
            }
 
            .continue{
             @include mix.greenBtn;
+            border-radius: 1.5rem;
            }
         }
     }

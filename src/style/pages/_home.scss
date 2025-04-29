@@ -91,16 +91,25 @@
                 width: 1rem;
             }
         }
+        
+        /* ------------ news------- */   
 
         .news__category{
             text-transform: uppercase;
+        } 
+
+        .news__content {
+            position: relative;
+            
         }
        
-        .news__content{
+        .swipe__content{
             display: flex;
             gap: 1rem;
             padding: 1rem;
             border-bottom: 1px solid var.$light-grey-color;
+            transition: transform 0.3s ease;
+            overflow: hidden;
 
             .news__img{
                 width: 5rem;
@@ -111,8 +120,29 @@
             p{
                 font-size: 0.75rem;
             }
-       
+          
         }
+
+         .delete__btn{
+            background-color: var.$delete-color;
+            border: none;
+            border-radius: none;
+            position: absolute;
+            right: -10.1rem;
+            top: 0;
+            bottom: 0;
+            width: 10rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .swipe__del__img{
+                width: 1rem;
+            }
+
+        }
+   
        
     }
 
