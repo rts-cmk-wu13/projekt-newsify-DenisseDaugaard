@@ -95,12 +95,19 @@
         .news__category{
             text-transform: uppercase;
         }
+        
+
+        .news__content {
+            position: relative;
+            overflow: hidden;
+        }
        
-        .news__content{
+        .swipe__content{
             display: flex;
             gap: 1rem;
             padding: 1rem;
             border-bottom: 1px solid var.$light-grey-color;
+            transition: transform 0.3s ease;
 
             .news__img{
                 width: 5rem;
