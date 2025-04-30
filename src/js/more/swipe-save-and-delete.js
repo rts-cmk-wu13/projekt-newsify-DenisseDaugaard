@@ -1,5 +1,8 @@
+import saveToLocalStorage from "./local-storage.js"
+
 export default function swipeSave() {
   let swipeContainer = document.querySelector(".news")
+  const categoriesData = JSON.parse(localStorage.getItem('newsCategories')) || [];
   //.log(swipeContainer);
 
   let incialX 
@@ -31,29 +34,55 @@ export default function swipeSave() {
 
 
   function endTouch(event) {
-    incialX = undefined
-    if(movedX < -100){
-      const categoriesData = JSON.parse(localStorage.getItem('newsCategories')) || [];
-      const news = document.querySelectorAll(".news__content")
-      console.log(news);
-
-      //show button
-      //save or delete 
-      event.target.closest(".swipe__content").style.transform = 'translateX(0)'
-      
-      console.log(event.target.closest('.news__content'));
-      const currentNews = event.target.closest('.news__content')
-      currentNews.toggleAttribute("data-delete")
-      currentNews.remove()
-      alert("this new is been delete!!!")
-
+    incialX = undefined;
+    //console.log(event.target);
+    const swipeContent = event.target.closest(".swipe__content");
+    const currentNews = swipeContent?.closest(".news__content");
+  
+    if (!currentNews) {
+      //console.warn("Could not find .news__content from swipe event");
+      return;
     }
-
+  
+    const sectionElem = event.target.closest("section.news__articles");
+    console.log(sectionElem);
+    const categoryTitle = sectionElem?.querySelector(".news__category")?.textContent;
+    //const categoryTitle = sectionElem.querySelector(".news__category").textContent;
+    // Error: Cannot read properties of null (reading 'querySelector')
+    console.log(categoryTitle);
+    const index = parseInt(currentNews?.dataset?.index, 10)
+    console.log(index);
     
-    if(movedX > 100){
-      event.target.closest(".swipe__content").style.transform = 'translateX(0)'
-      alert("this article is been saved in the archive!")
+
+    if (movedX < -100) {
+      swipeContent.style.transform = 'translateX(0)';
+      currentNews.setAttribute('data-delete', 'true');
+      alert("This news article is being deleted!")
+
+      const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle);
+      console.log(categoryIndex)
+      
+      if (categoryIndex !== -1 && categoriesData[categoryIndex].articles[index]) {
+        categoriesData[categoryIndex].articles[index].delete = true;
+        currentNews.remove()
+        saveToLocalStorage('newsCategories', categoriesData);
+      }
+      
+    }
+  
+    if (movedX > 100) {
+      swipeContent.style.transform = 'translateX(0)';
+      currentNews.setAttribute('data-saved', 'true')
+      alert("This article is being saved in the archive!");
+
+  
+      const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle);
+      console.log(categoryIndex)
+      
+      if (categoryIndex !== -1 && categoriesData[categoryIndex].articles[index]) {
+        categoriesData[categoryIndex].articles[index].saved = true
+        saveToLocalStorage('newsCategories', categoriesData)
+      }
     }
   }
-}
-
+}  

@@ -2,12 +2,7 @@
 @use '/src/style/variables' as var;
 
 $dark-color:hsl(0, 0%, 13%);
-$btn-font-color:#88A4E8;
 $light-color:white;
-// $grey-text-color:#9C9C9C;
-// $purple-color:#8a2be2;
-// $pink-color:#f1b9e4;
-// $shadow-color:rgba(130, 130, 157, 0.25);
 
 
 
@@ -59,6 +54,15 @@ a {
 
   [data-dark="true"] .welcome__title {
     animation: backcolorDark 3s linear 1 forwards;
+  }
+
+  
+  [data-dark="true"] .no__saved__news {
+    color: $light-color;
+  }
+  
+  [data-dark="false"] .no__saved__news {
+    color: $dark-color;
   }
 
   

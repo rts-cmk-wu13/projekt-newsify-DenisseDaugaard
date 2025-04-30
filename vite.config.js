@@ -12,6 +12,7 @@ export default defineConfig({
         login: resolve(__dirname, 'login.html'), 
         home: resolve(__dirname, 'home.html'), 
         settings: resolve(__dirname, 'settings.html'), 
+        archive: resolve(__dirname, 'archive.html'), 
       },
     },
   },
