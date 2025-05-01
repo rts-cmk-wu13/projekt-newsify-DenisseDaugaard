@@ -5,18 +5,22 @@
 .no__saved__news{
     font-size: 2rem;
     position: absolute;
-   text-align: center;
-   padding: 1rem ;
+    text-align: center;
+    padding: 1rem ;
     top: 50%;
 }
 
-.top__logo{
-   padding-bottom: 3rem;
+#app__archive .top__logo{
+  padding-bottom: 3rem;
 }
 
+article .news__saved__container:first-of-type{
+     border-top: 1px solid var.$dot-color;
+}
 .news__saved__container{
-    padding: 1rem;
+    padding: 2rem;
     text-align: center;
+    border-bottom: 1px solid var.$dot-color;
     img{
         border-radius: 2rem;
     }
@@ -25,10 +29,12 @@
         background-color:var.$delete-color;
         border-radius: 2rem;
         border: none;
-        height: 2.5rem;
+        margin-top: 1rem;
+        width: max-content;
         
        img{
         width:1.5rem;
+        height:auto;
        }
     }
    

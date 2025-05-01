@@ -55,18 +55,25 @@ export default function swipeSave() {
     
 
     if (movedX < -100) {
-      swipeContent.style.transform = 'translateX(0)';
-      currentNews.setAttribute('data-delete', 'true');
-      alert("This news article is being deleted!")
-
-      const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle);
-      console.log(categoryIndex)
+      swipeContent.style.transform = 'translateX(0)'
+      currentNews.setAttribute('data-delete', 'true')
       
-      if (categoryIndex !== -1 && categoriesData[categoryIndex].articles[index]) {
-        categoriesData[categoryIndex].articles[index].delete = true;
-        currentNews.remove()
-        saveToLocalStorage('newsCategories', categoriesData);
-      }
+      const confirmed = confirm("Are you sure you want to delete this news article?");
+        
+      if (confirmed) {
+        // proceed with delete
+          
+        const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle);
+        console.log(categoryIndex)
+        
+          if (categoryIndex !== -1 && categoriesData[categoryIndex].articles[index]) {
+            categoriesData[categoryIndex].articles[index].delete = true;
+            currentNews.remove()
+            saveToLocalStorage('newsCategories', categoriesData);
+          }
+        }
+
+
       
     }
   

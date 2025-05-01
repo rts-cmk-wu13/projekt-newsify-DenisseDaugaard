@@ -1,5 +1,5 @@
 import darkMode from "./dark-mode.js"
-import archiveBody from "./archive-news-layout.js"
+import archiveBody from "./archive-main.js"
 import { readFromLocalStorage } from "./local-storage.js"
 
 export default async function archiveData(dataOrigin) {
@@ -8,16 +8,15 @@ export default async function archiveData(dataOrigin) {
   const savedNews = savedCategories.flatMap(category =>
     category.articles.filter(news => news.saved === true))
   // flatMap gives back single elements and not the array from an array !!
-  console.log(savedNews);
+  //console.log(savedNews);
 
    if(savedNews == false){
     console.log('no saved data');
 
     let noSavedNews = document.createElement('div')
     noSavedNews.classList.add('no__saved__news')
-    noSavedNews.innerHTML = "There are no saved news yet!!"
+    noSavedNews.innerHTML = "The archive is empty!!"
     document.querySelector('main').append(noSavedNews)
-
 
     console.log(document.querySelector('main'))
     

@@ -13,6 +13,7 @@ export default defineConfig({
         home: resolve(__dirname, 'home.html'), 
         settings: resolve(__dirname, 'settings.html'), 
         archive: resolve(__dirname, 'archive.html'), 
+        popular: resolve(__dirname, 'popular.html'), 
       },
     },
   },

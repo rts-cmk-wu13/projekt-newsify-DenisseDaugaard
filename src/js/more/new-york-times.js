@@ -1,3 +1,4 @@
+import saveToLocalStorage from "./local-storage";
 
 
 export default  async  function newYorkTimes() {
@@ -29,4 +30,22 @@ export default  async  function newYorkTimes() {
     return results;
   }
   
+
+export async function popularNews (){
+
+  const apiKey = '7AfIlWjRMps6WnJ6UEhv3UDuoO5pigTz';
+  const url = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${apiKey}`
+
+  
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`)
+    }
+    const data = await response.json()
+    const popular = data.results
+    
+   saveToLocalStorage('newsPopular', popular)
+    
+  }
+
 
