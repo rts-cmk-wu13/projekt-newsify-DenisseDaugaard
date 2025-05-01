@@ -1,27 +1,25 @@
 import { readFromLocalStorage } from "./local-storage.js";
-import newsBody from "./home-main.js";
-import newYorkTimes from "./new-york-times.js";
+import { popularNews } from "./new-york-times.js";
+import popularMain from "./popular-main.js";
 
 
-export default async function homeData() {
+export default async function popularData() {
 
-  const mySavedSetting = readFromLocalStorage('newsCategories')
-  //console.log(mySavedSetting);
+  const popularSaved = readFromLocalStorage('newsPopular')
+  //console.log(popularSaved);
 
-  if(mySavedSetting){
-    newsBody(mySavedSetting)
-    
+  if(popularSaved){
+    //console.log('hello');
+   popularMain(popularSaved)
+
   }else{
+    popularNews()
+  }
 
-   newYorkTimes().then(data =>{
-    newsBody(data)
-   })
-   
-}
 
+  
 
 }
-
 
 
 /* ------------notes----------------------- */

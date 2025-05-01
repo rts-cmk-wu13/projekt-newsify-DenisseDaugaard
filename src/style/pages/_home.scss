@@ -4,7 +4,8 @@
 
 #app__home,
 #app__settings,
-#app__archive{
+#app__archive,
+#app__body{
 
     display: flex;
     flex-direction: column;
@@ -96,7 +97,7 @@
                 width: 1rem;
             }
         }
-        
+    }
         /* ------------ news------- */   
 
         .news__category{
@@ -157,7 +158,7 @@
         }
    
        
-    }
+    
 
     /* ----------------footer------------------ */
     
@@ -186,5 +187,8 @@
     }
 }
 
-
+.popular__img{
+   width: 10rem;
+   border-radius: 2rem;
+}
 

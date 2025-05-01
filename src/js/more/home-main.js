@@ -1,4 +1,4 @@
-import { popularNews } from "./new-york-times.js"
+
 import swipeSave from "./swipe-save-and-delete.js"
 
 export default function newsBody(dataOrigin) {
@@ -38,8 +38,6 @@ export default function newsBody(dataOrigin) {
  `
     document.querySelector("main").append(articleElm)
     swipeSave()
-
-    popularNews()
 
 
     return articleElm

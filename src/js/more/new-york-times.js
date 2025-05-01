@@ -31,10 +31,13 @@ export default  async  function newYorkTimes() {
   }
   
 
+
+  
 export async function popularNews (){
 
+  const period = 7
   const apiKey = '7AfIlWjRMps6WnJ6UEhv3UDuoO5pigTz';
-  const url = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${apiKey}`
+  const url = `https://api.nytimes.com/svc/mostpopular/v2/viewed/${period}.json?api-key=${apiKey}`
 
   
     const response = await fetch(url);
@@ -42,10 +45,14 @@ export async function popularNews (){
       throw new Error(`Response status: ${response.status}`)
     }
     const data = await response.json()
+    console.log(data);
+    
     const popular = data.results
     
-   saveToLocalStorage('newsPopular', popular)
+    console.log(popular);
+    saveToLocalStorage('newsPopular', popular)
+    return popular
     
   }
-
+ 
 

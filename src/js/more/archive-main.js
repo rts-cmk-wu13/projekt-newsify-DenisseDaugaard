@@ -25,7 +25,7 @@ export default function archiveBody(dataOrigin) {
             <h3>${newsSaved.title}</h3>
             <p>${newsSaved.abstract}</p>
             </section>
-          <button class="delete__btn"><img class="swipe__del__img" src="/img/delete.svg" alt="image of a trashcan"></button>
+          <button class="achive__delete__btn"><img class="swipe__del__img" src="/img/delete.svg" alt="image of a trashcan"></button>
         </div> 
             `).join('')}
       
@@ -33,7 +33,7 @@ export default function archiveBody(dataOrigin) {
     document.querySelector("main").append(articleElm)
 
     const currentData = dataOrigin.flatMap(news => news)
-    const allDeleteBtns = document.querySelectorAll('.delete__btn')
+    const allDeleteBtns = document.querySelectorAll('.achive__delete__btn')
     //console.log(currentData);
     
     const allData = readFromLocalStorage('newsCategories')
