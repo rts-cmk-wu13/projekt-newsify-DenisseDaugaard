@@ -1,8 +1,7 @@
 import darkMode from "./dark-mode.js"
-import settingsList from "./setting-list-layout.js"
+import settingsList from "./setting-main.js"
 import saveToLocalStorage from "./local-storage.js"
 import { readFromLocalStorage } from "./local-storage.js"
-import checkBox from "./checkbox.js"
 import newYorkTimes from "./new-york-times.js"
 
 export default async function settingsData() {

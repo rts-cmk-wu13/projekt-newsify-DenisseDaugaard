@@ -1,5 +1,6 @@
 
 import checkBox from "./checkbox.js";
+
 export default function settingsList(dataOrigin) {
   
     let articleElm = document.createElement("article")

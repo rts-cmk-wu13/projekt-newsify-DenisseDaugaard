@@ -1,4 +1,5 @@
-import swipeToDelete from "./swipe-delete.js"
+
+import swipeSave from "./swipe-save-and-delete.js"
 
 export default function newsBody(dataOrigin) {
 
@@ -15,8 +16,8 @@ export default function newsBody(dataOrigin) {
                   <summary class="news__header">
                   <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
                   <h3 class="news__category">${category.section}</h3></summary>
-                  ${category.articles.map(news => `
-                        <div class="news__content">
+                  ${category.articles.map((news, index) =>  `
+                        <div class="news__content" data-index=${index}  ${news.delete ? 'style="display: none;"' : ''}>
                             <div class="swipe__content">
                                 <figure class="news__img__container">
                                     <img class="news__img" src="${news.multimedia?.[1]?.url || '/public/img/fallback.jpg'}" alt="${news.title}">
@@ -26,16 +27,17 @@ export default function newsBody(dataOrigin) {
                                     <h5>${news.title}</h5>
                                     <p>${news.abstract}</p>
                                 </section>
+                                <button class="delete__btn"><img class="swipe__del__img" src="/img/delete.svg" alt="image of a trashcan"></button>
+                                <button class="save__btn"><img class="swipe__save__img" src="/img/save.svg" alt="image of a trashcan"></button>
                             </div>      
-                          <button class="delete__btn"><img class="swipe__del__img" src="/img/delete.svg" alt="image of a trashcan"></button>
                         </div>    
-                  `).join("")}
+                 `).join("")}
               </details>
           </section>
       `).join("")}
-    `
+ `
     document.querySelector("main").append(articleElm)
-    swipeToDelete()
+    swipeSave()
 
 
     return articleElm

@@ -1,8 +1,10 @@
+
 import '/src/style/style.scss'
-import homeData from './more/home-data.js'
 import darkMode from './more/dark-mode.js'
 
-document.querySelector('#app__home').innerHTML = `
+import archiveData from './more/archive-data.js'
+
+document.querySelector('#app__archive').innerHTML = `
 <header>
     <div class="top__logo">
         <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
@@ -46,7 +48,7 @@ document.querySelector('#app__home').innerHTML = `
     </div>
 </footer>
 `
-homeData()
+archiveData()
 darkMode()
 
 

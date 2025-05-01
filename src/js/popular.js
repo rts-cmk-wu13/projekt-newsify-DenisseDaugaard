@@ -1,8 +1,8 @@
 import '/src/style/style.scss'
-import homeData from './more/home-data.js'
 import darkMode from './more/dark-mode.js'
+import popularData from './more/popular-data.js'
 
-document.querySelector('#app__home').innerHTML = `
+document.querySelector('#app__body').innerHTML = `
 <header>
     <div class="top__logo">
         <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
@@ -46,8 +46,9 @@ document.querySelector('#app__home').innerHTML = `
     </div>
 </footer>
 `
-homeData()
 darkMode()
+popularData()
+
 
 
 //console.log(document.querySelectorAll("a"));   /// make it a function 

@@ -16,6 +16,7 @@ export default function checkBox() {
         categoriesData[index].disabled = true
         categoriesData[index].checked = false 
         checkbox.checked = false;  
+        
       } else {
         console.log(category, "available")
         categoriesData[index].disabled = false

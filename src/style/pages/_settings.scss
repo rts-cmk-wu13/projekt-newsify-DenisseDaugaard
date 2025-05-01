@@ -1,6 +1,7 @@
 @use '/src/style/variables' as var;
 
-#app__settings{
+#app__settings, 
+#app__archive{
 
     .settings__header{
         padding: 0 1rem;
