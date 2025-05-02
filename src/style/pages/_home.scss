@@ -65,11 +65,10 @@
     }
 
     /* ----------main------ */
-
-    // .news{
-    //     touch-action: none;
-    // }
-
+    .news {
+        touch-action: pan-y; // allow vertical scrolling
+      }
+      
     
 
     .news__articles{
