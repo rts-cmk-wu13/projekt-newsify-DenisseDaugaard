@@ -48,9 +48,8 @@ export async function popularNews (){
     console.log(data);
     
     const popular = data.results
-    
-    console.log(popular);
-    saveToLocalStorage('newsPopular', popular)
+    // console.log(popular);
+    // saveToLocalStorage('newsPopular', popular)
     return popular
     
   }
