@@ -2,6 +2,8 @@ import saveToLocalStorage from "./local-storage.js"
 
 export default function swipeSave() {
   let swipeContainer = document.querySelector(".news")
+  let minSwipeDistance = 50
+
   const categoriesData = JSON.parse(localStorage.getItem('newsCategories')) || [];
   const popularData = JSON.parse(localStorage.getItem('newsPopular')) || [];
   //.log(swipeContainer);
@@ -42,24 +44,26 @@ export default function swipeSave() {
 
   
     if (!currentNews) {
-      console.warn("Could not find .news__content from swipe event");
       return;
     }
   
     const sectionElem = event.target.closest("section.news__articles");
     const popularElm = event.target.closest("div.news__content")
-    console.log(popularElm);
+    //console.log(popularElm);
     //console.log(sectionElem);
     const categoryTitle = sectionElem?.querySelector(".news__category")?.textContent;
-    const popularTitle = popularElm?.querySelector(".news__text h3")?.textContent
-    console.log(popularTitle);
-    
-
+    const popularTitle = popularElm?.querySelector(".news__pop__title")?.textContent
+    //console.log(popularTitle);
     //const categoryTitle = sectionElem.querySelector(".news__category").textContent;
     // Error: Cannot read properties of null (reading 'querySelector')
     //console.log(categoryTitle);
     const index = parseInt(currentNews?.dataset?.index, 10)
-    console.log(index);
+    //console.log(index)
+
+    if (Math.abs(movedX) < minSwipeDistance) {
+      swipeContent.style.transform = 'translateX(0)'
+      return
+    }
     
 
     if (movedX < -100) {
@@ -75,16 +79,20 @@ export default function swipeSave() {
         console.log(popularIndex)
         
           if (categoryIndex !== -1 && categoriesData[categoryIndex].articles[index]) {
-            
-            categoriesData[categoryIndex].articles[index].delete = true;
+            categoriesData[categoryIndex].articles[index].delete = true
             currentNews.remove()
-            saveToLocalStorage('newsCategories', categoriesData);
+
+            saveToLocalStorage('newsCategories', categoriesData)
+            
+          } else if (popularIndex !== -1) {
+            popularData[popularIndex].delete = true        
+            currentNews.remove()
+            saveToLocalStorage('newsPopular', popularData)
           }
         }
-
-
-      
     }
+
+
   
     if (movedX > 100) {
       swipeContent.style.transform = 'translateX(0)';
@@ -93,12 +101,20 @@ export default function swipeSave() {
 
   
       const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle);
-      console.log(categoryIndex)
+      const popularIndex = popularData.findIndex( popular => popular.title === popularTitle)
+      //console.log(categoryIndex)
       
       if (categoryIndex !== -1 && categoriesData[categoryIndex].articles[index]) {
+        
         categoriesData[categoryIndex].articles[index].saved = true
         saveToLocalStorage('newsCategories', categoriesData)
+
+      } else if ( popularIndex !== -1){
+        popularData[popularIndex].saved = true
+        saveToLocalStorage('newsPopular', popularData)
+       
       }
     }
   }
+  movedX = 0
 }  

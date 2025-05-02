@@ -8,11 +8,6 @@ document.querySelector('#app__body').innerHTML = `
         <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
         <h2>Newsify</h2>
     </div>
-
-    <form action="home.html">
-        <input class="search" type="search" name="name" id="id" placeholder="Search news">
-    </form>
-
 </header>
 
 <main> </main>
