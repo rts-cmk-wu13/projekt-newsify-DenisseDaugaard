@@ -1,16 +1,22 @@
 import darkMode from "./dark-mode.js"
 import archiveBody from "./archive-main.js"
 import { readFromLocalStorage } from "./local-storage.js"
+import { archiveBodyPopular } from "./archive-main.js"
 
-export default async function archiveData(dataOrigin) {
+
+export default async function archiveData() {
   
   const savedCategories = readFromLocalStorage("newsCategories")
-  const savedNews = savedCategories.flatMap(category =>
-    category.articles.filter(news => news.saved === true))
+  const savedPopular = readFromLocalStorage("newsPopular")
+  
+  const savedNews = savedCategories.flatMap(category => category.articles.filter(news => news.saved === true))
+  const savedPopNews = savedPopular.filter(news => news.saved == true)  
   // flatMap gives back single elements and not the array from an array !!
   //console.log(savedNews);
+  //console.log(savedPopNews);
+  
 
-   if(savedNews == false){
+   if(savedNews == false && savedPopNews == false){
     console.log('no saved data');
 
     let noSavedNews = document.createElement('div')
@@ -19,15 +25,17 @@ export default async function archiveData(dataOrigin) {
     document.querySelector('main').append(noSavedNews)
 
     console.log(document.querySelector('main'))
-    
    }
  
 
-  if(savedNews){
-    archiveBody(savedNews)
-  }
-  
-  
+    if(savedNews){
+      archiveBody(savedNews)
+    }
+
+    if(savedPopNews){
+      archiveBodyPopular(savedPopNews)
+    }
+    
     
     darkMode()
 

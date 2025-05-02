@@ -17,12 +17,12 @@
     }
 
     article {
-        .news__articles:not(:first-of-type){
+        .news__articles{
             border-bottom: 1px solid var.$light-grey-color;
             // background-color: lightpink;
         }
-        .news__articles:first-child {
-            border: 1px solid var.$light-grey-color;
+        .news__articles:first-of-type {
+            border-top: 1px solid var.$light-grey-color;
             // background-color: lightblue;
         }
        
@@ -54,7 +54,7 @@
         }
     }
 
-    .search{
+    .search__box{
         background-color: rgb(217, 217, 217, 0.3);
         border: none;
         padding: 1rem;
@@ -187,8 +187,16 @@
     }
 }
 
-.popular__img{
-   width: 10rem;
-   border-radius: 2rem;
-}
+ #app__body{
+    .popular__img{
+        width: 5rem;
+        border-radius: 1rem;
+     }
 
+     .settings__header{
+        text-align: center;
+        font-size: 2rem;
+        color: var.$save-color;
+        font-family: 'PlayfairDisplay';
+     }
+ }

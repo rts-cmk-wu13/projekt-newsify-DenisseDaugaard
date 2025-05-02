@@ -1,6 +1,7 @@
 import '/src/style/style.scss'
 import homeData from './more/home-data.js'
 import darkMode from './more/dark-mode.js'
+import search from './more/home-search.js'
 
 document.querySelector('#app__home').innerHTML = `
 <header>
@@ -9,8 +10,8 @@ document.querySelector('#app__home').innerHTML = `
         <h2>Newsify</h2>
     </div>
 
-    <form action="home.html">
-        <input class="search" type="search" name="name" id="id" placeholder="Search news">
+    <form class="search__form">
+        <input class="search__box" type="search" name="name" id="id" placeholder="Search news">
     </form>
 
 </header>
@@ -48,6 +49,7 @@ document.querySelector('#app__home').innerHTML = `
 `
 homeData()
 darkMode()
+search()
 
 
 //console.log(document.querySelectorAll("a"));   /// make it a function 

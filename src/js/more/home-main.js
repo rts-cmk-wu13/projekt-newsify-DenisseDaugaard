@@ -6,12 +6,13 @@ export default function newsBody(dataOrigin) {
     // dataOrigin.forEach( category=> {
     //     console.log(category.disabled);
     // })
-   
     let articleElm = document.createElement("article")
     articleElm.classList.add("news")
     articleElm.innerHTML= `
+    <div class="search__results"></div>
       ${dataOrigin.map( category => `
        <section class="news__articles" ${category.disabled ? 'style="display: none;"' : ''}>
+            
               <details name="categories">
                   <summary class="news__header">
                   <img class="logo" src="/img/newsify_logo.svg" alt="LOGO">
@@ -24,13 +25,14 @@ export default function newsBody(dataOrigin) {
                                 </figure>
         
                                 <section class="news__text">
-                                    <h5>${news.title}</h5>
+                                    <h5 class="news__title">${news.title}</h5>
                                     <p>${news.abstract}</p>
+                                     <a class="news__link" href="${news.url}">Read more...</a>   
                                 </section>
                                 <button class="delete__btn"><img class="swipe__del__img" src="/img/delete.svg" alt="image of a trashcan"></button>
                                 <button class="save__btn"><img class="swipe__save__img" src="/img/save.svg" alt="image of a trashcan"></button>
                             </div>      
-                        </div>    
+                        </div>       
                  `).join("")}
               </details>
           </section>
@@ -38,6 +40,7 @@ export default function newsBody(dataOrigin) {
  `
     document.querySelector("main").append(articleElm)
     swipeSave()
+ 
 
 
     return articleElm

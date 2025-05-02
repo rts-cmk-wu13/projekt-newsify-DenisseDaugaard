@@ -64,3 +64,13 @@
    }
 
 }
+
+.search__results {
+  .news__text p,
+  .news__text h5,
+  .news__text a{
+   background-color: transparent;
+  }
+  background-color: rgba(140, 186, 140, 0.589);
+
+}
