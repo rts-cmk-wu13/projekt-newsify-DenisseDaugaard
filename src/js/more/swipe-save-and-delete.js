@@ -1,3 +1,4 @@
+import { dialogMessage } from "./dialog.js";
 import saveToLocalStorage from "./local-storage.js"
 
 export default function swipeSave() {
@@ -6,6 +7,7 @@ export default function swipeSave() {
 
   const categoriesData = JSON.parse(localStorage.getItem('newsCategories')) || [];
   const popularData = JSON.parse(localStorage.getItem('newsPopular')) || [];
+  const dialogMessageElm = dialogMessage()
   //.log(swipeContainer);
 
   let incialX 
@@ -97,8 +99,7 @@ export default function swipeSave() {
     if (movedX > 100) {
       swipeContent.style.transform = 'translateX(0)';
       currentNews.setAttribute('data-saved', 'true')
-      alert("This article is being saved in the archive!");
-
+      //alert("This article is being saved in the archive!");
   
       const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle);
       const popularIndex = popularData.findIndex( popular => popular.title === popularTitle)
@@ -108,6 +109,10 @@ export default function swipeSave() {
         
         categoriesData[categoryIndex].articles[index].saved = true
         saveToLocalStorage('newsCategories', categoriesData)
+
+        document.querySelector('main').append(dialogMessageElm)
+        dialogMessageElm.showModal()
+  
 
       } else if ( popularIndex !== -1){
         popularData[popularIndex].saved = true
