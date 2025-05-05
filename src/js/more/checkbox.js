@@ -4,7 +4,7 @@ export default function checkBox() {
   checkboxes.forEach((checkbox, index) => {
     checkbox.addEventListener("change", () => {
       const category = checkbox.closest(".news__header")
-      console.log(category);
+      //console.log(category);
       
       category.toggleAttribute("data-disable");
 
@@ -12,13 +12,13 @@ export default function checkBox() {
 
       // Update the categoriesData array
       if (category.hasAttribute("data-disable")) {
-        console.log(category, "not-available")
+        //console.log(category, "not-available")
         categoriesData[index].disabled = true
         categoriesData[index].checked = false 
         checkbox.checked = false;  
         
       } else {
-        console.log(category, "available")
+        //console.log(category, "available")
         categoriesData[index].disabled = false
         categoriesData[index].checked = true // Keep the checkbox checked if not disabled
       }

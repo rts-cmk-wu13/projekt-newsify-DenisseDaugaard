@@ -17,14 +17,14 @@ export default async function archiveData() {
   
 
    if(savedNews == false && savedPopNews == false){
-    console.log('no saved data');
+    //console.log('no saved data');
 
     let noSavedNews = document.createElement('div')
     noSavedNews.classList.add('no__saved__news')
     noSavedNews.innerHTML = "The archive is empty!!"
     document.querySelector('main').append(noSavedNews)
 
-    console.log(document.querySelector('main'))
+    //console.log(document.querySelector('main'))
    }
  
 
