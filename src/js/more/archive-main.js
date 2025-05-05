@@ -42,7 +42,7 @@ export default function archiveBody(dataOrigin) {
       allDeleteBtns.forEach((btn, index) => {
       btn.addEventListener("click", () => {
         //console.log(event.target, currentData[index])
-        console.log( btn.closest(".news__saved__container"));
+        //console.log( btn.closest(".news__saved__container"));
         
         const targetNews = currentData[index];
 
@@ -60,7 +60,7 @@ export default function archiveBody(dataOrigin) {
         if(confirmation)
         btn.closest(".news__saved__container").remove() 
         saveToLocalStorage('newsCategories', allData)
-        console.log(allData)
+        //console.log(allData)
 
       })
     })
@@ -100,7 +100,7 @@ export function archiveBodyPopular(dataOrigin) {
     document.querySelector("main").append(articleElm)
 
     const currentData = dataOrigin.flatMap(news => news)
-    console.log(currentData);
+    //console.log(currentData);
     const allDeleteBtns = articleElm.querySelectorAll('.achive__delete__btn')
 
     //console.log(currentData);
@@ -110,10 +110,10 @@ export function archiveBodyPopular(dataOrigin) {
       allDeleteBtns.forEach((btn, index) => {
       btn.addEventListener("click", () => {
         //console.log(event.target, currentData[index])
-        console.log( btn.closest(".news__saved__container"));
+        //console.log( btn.closest(".news__saved__container"));
         
         const targetNews = currentData[index];
-        console.log(targetNews);
+        //console.log(targetNews);
         
         allData.forEach(news => {
             if (news.title === targetNews.title) {
@@ -128,7 +128,7 @@ export function archiveBodyPopular(dataOrigin) {
         if(confirmation)
         btn.closest(".news__saved__container").remove() 
         saveToLocalStorage('newsPopular', allData)
-        console.log(allData)
+        //console.log(allData)
 
       })
     })
