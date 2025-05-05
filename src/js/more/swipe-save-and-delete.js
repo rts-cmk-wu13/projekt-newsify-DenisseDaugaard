@@ -1,14 +1,16 @@
-import { dialogMessage } from "./dialog.js";
+import dialogConfirm, { dialogMessage } from "./dialog.js";
 import saveToLocalStorage from "./local-storage.js"
 
 export default function swipeSave() {
   let swipeContainer = document.querySelector(".news")
-  let minSwipeDistance = 50
+  let minSwipeDistance = 80
 
   const categoriesData = JSON.parse(localStorage.getItem('newsCategories')) || [];
   const popularData = JSON.parse(localStorage.getItem('newsPopular')) || [];
   const dialogMessageElm = dialogMessage()
-  //.log(swipeContainer);
+  const dialogDeleteElm = dialogConfirm()
+  //console.log(dialogDeleteElm.querySelector('.delete__article'));
+  
 
   let incialX 
   let currentX 
@@ -71,14 +73,19 @@ export default function swipeSave() {
     if (movedX < -100) {
       swipeContent.style.transform = 'translateX(0)'
       currentNews.setAttribute('data-delete', 'true')
+
+      setTimeout(() => {
+        document.querySelector('main').append(dialogDeleteElm);
+        dialogDeleteElm.showModal();
+      }, 100)
       
-      const confirmed = confirm("Are you sure you want to delete this news article?");
-        
-      if (confirmed) {
-        // proceed with delete 
-        const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle)
-        const popularIndex = popularData.findIndex( popular => popular.title === popularTitle);
-        console.log(popularIndex)
+      dialogDeleteElm.querySelector('.delete__article').addEventListener('click', (event) =>{
+        if(event.target){
+
+          //console.log('delete clicked')
+          const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle)
+          const popularIndex = popularData.findIndex( popular => popular.title === popularTitle);
+          console.log(popularIndex)
         
           if (categoryIndex !== -1 && categoriesData[categoryIndex].articles[index]) {
             categoriesData[categoryIndex].articles[index].delete = true
@@ -91,15 +98,26 @@ export default function swipeSave() {
             currentNews.remove()
             saveToLocalStorage('newsPopular', popularData)
           }
+
+          dialogDeleteElm.close()
         }
+      })
+        
+  
     }
 
 
-  
+   /* -------------------- proceed with save --------------- */ 
     if (movedX > 100) {
-      swipeContent.style.transform = 'translateX(0)';
+
+      swipeContent.style.transform = 'translateX(0)'
       currentNews.setAttribute('data-saved', 'true')
       //alert("This article is being saved in the archive!");
+      setTimeout(() => {
+        document.querySelector('main').append(dialogMessageElm);
+        dialogMessageElm.showModal();
+      }, 100)
+
   
       const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle);
       const popularIndex = popularData.findIndex( popular => popular.title === popularTitle)
@@ -109,10 +127,6 @@ export default function swipeSave() {
         
         categoriesData[categoryIndex].articles[index].saved = true
         saveToLocalStorage('newsCategories', categoriesData)
-
-        document.querySelector('main').append(dialogMessageElm)
-        dialogMessageElm.showModal()
-  
 
       } else if ( popularIndex !== -1){
         popularData[popularIndex].saved = true

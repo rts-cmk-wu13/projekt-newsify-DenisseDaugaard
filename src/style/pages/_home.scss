@@ -137,10 +137,15 @@
             right: -101%;
             top: 0;
             bottom: 0;
+
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            
             .swipe__del__img{
-                width: 5rem;
-                height: auto;
-                margin-right: auto;
+                width: 4rem;
+                height:4rem ;
+               
             }
 
         }
@@ -152,8 +157,13 @@
             left: -101%;
             top: 0;
             bottom: 0;
+
+            display: flex;
+            justify-content: end;
+            align-items: center;
             .swipe__save__img{
-                width: 5rem;
+               width: 4rem;
+               height: 4rem;
             }
 
         }
@@ -200,4 +210,42 @@
         color: var.$save-color;
         font-family: 'PlayfairDisplay';
      }
+ }
+
+
+    dialog::backdrop{
+    background-color: rgba(179, 178, 178, 0.485);
+    }
+
+ dialog{
+    margin: auto;
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    p{
+        margin-bottom: 1rem;
+        background-color: transparent;
+    }
+
+    .buttons__container{
+        display: flex;
+        justify-content: space-around;
+        
+    }
+    button{
+        border: none;
+        border-radius:0.5rem;
+        width: max-content;
+        font-size: 0.75rem;
+    }
+   .not-delete__article{
+        background-color: var.$secundary-color;
+        display: flex;
+        justify-self: center;
+    }
+
+    .delete__article{
+        background-color: var.$delete-color;
+    }
  }
