@@ -1,5 +1,7 @@
 import { readFromLocalStorage } from "./local-storage.js"
 import saveToLocalStorage from "./local-storage.js"
+import { dialogMessage } from "./dialog.js"
+
 
 export default function search(){
     const searchForm = document.querySelector('.search__form')
@@ -47,7 +49,10 @@ export default function search(){
           })
 
           if (!matchFound) {
-               alert('Article not found!')
+            let message = dialogMessage()
+            document.querySelector('main').append(message)
+            message.querySelector('p').innerHTML = 'Article not found'
+              message.showModal()
               }
     })
     

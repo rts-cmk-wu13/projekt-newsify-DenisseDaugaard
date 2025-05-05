@@ -1,139 +1,136 @@
-import dialogConfirm, { dialogMessage } from "./dialog.js";
+import dialogConfirm, { dialogMessage } from "./dialog.js"
 import saveToLocalStorage from "./local-storage.js"
 
 export default function swipeSave() {
   let swipeContainer = document.querySelector(".news")
-  let minSwipeDistance = 80
-
-  const categoriesData = JSON.parse(localStorage.getItem('newsCategories')) || [];
-  const popularData = JSON.parse(localStorage.getItem('newsPopular')) || [];
+  const categoriesData = JSON.parse(localStorage.getItem('newsCategories')) || []
+  const popularData = JSON.parse(localStorage.getItem('newsPopular')) || []
   const dialogMessageElm = dialogMessage()
   const dialogDeleteElm = dialogConfirm()
-  //console.log(dialogDeleteElm.querySelector('.delete__article'));
-  
 
-  let incialX 
-  let currentX 
-  let movedX 
+  let incialX
+  let currentX
+  let movedX
+  let isSwiping = false
+  let swipeAction = null  // Keeps track of the current swipe action (delete or save)
 
   swipeContainer.addEventListener('pointerdown', startTouch)
   swipeContainer.addEventListener('pointermove', moveTouch)
   swipeContainer.addEventListener('pointerup', endTouch)
 
   function startTouch(event) {
-      //console.log(event);
-      incialX = event.clientX
-      //console.log(incialX);
-    
+    incialX = event.clientX
+    isSwiping = false  // Reset swipe flag for each new touch
+    swipeAction = null  // Reset the action before any swipe
   }
-
 
   function moveTouch(event) {
-    //console.log(event);
     currentX = event.clientX
-    //console.log(currentX);
     movedX = currentX - incialX
-    //console.log(movedX);
-    //console.log(event.target.closest(".swipe__content"));
-    event.target.closest(".swipe__content").style.transform = `translateX(${movedX}px)`
-    
+
+    if (Math.abs(movedX) > 10) {
+      isSwiping = true // Only mark as swiping if the movement is large enough
+    }
+
+    const swipeContent = event.target.closest(".swipe__content")
+    if (swipeContent) {
+      swipeContent.style.transform = `translateX(${movedX}px)`
+    }
   }
 
-
   function endTouch(event) {
-    incialX = undefined;
-    //console.log(event.target);
-    const swipeContent = event.target.closest(".swipe__content");
-    const currentNews = swipeContent?.closest(".news__content");
+    incialX = undefined
+    const swipeContent = event.target.closest(".swipe__content")
+    const currentNews = swipeContent?.closest(".news__content")
 
-  
     if (!currentNews) {
-      return;
-    }
-  
-    const sectionElem = event.target.closest("section.news__articles");
-    const popularElm = event.target.closest("div.news__content")
-    //console.log(popularElm);
-    //console.log(sectionElem);
-    const categoryTitle = sectionElem?.querySelector(".news__category")?.textContent;
-    const popularTitle = popularElm?.querySelector(".news__pop__title")?.textContent
-    //console.log(popularTitle);
-    //const categoryTitle = sectionElem.querySelector(".news__category").textContent;
-    // Error: Cannot read properties of null (reading 'querySelector')
-    //console.log(categoryTitle);
-    const index = parseInt(currentNews?.dataset?.index, 10)
-    //console.log(index)
-
-    if (Math.abs(movedX) < minSwipeDistance) {
-      swipeContent.style.transform = 'translateX(0)'
       return
     }
-    
 
+    const sectionElem = event.target.closest("section.news__articles")
+    const popularElm = event.target.closest("div.news__content")
+    const categoryTitle = sectionElem?.querySelector(".news__category")?.textContent
+    const popularTitle = popularElm?.querySelector(".news__pop__title")?.textContent
+    const index = parseInt(currentNews?.dataset?.index, 10)
+
+    // Reset swipe state if the swipe action wasn't enough to trigger delete or save
+    if (!isSwiping || !currentNews) {
+      swipeContent.style.transform = 'translateX(0)'
+      movedX = 0
+      isSwiping = false
+      currentNews.removeAttribute('data-delete')
+      currentNews.removeAttribute('data-saved')
+      return
+    }
+
+    // Handle Delete (Swipe to the left)
     if (movedX < -100) {
+      swipeAction = 'delete' // Set action to delete if swiped left
+
       swipeContent.style.transform = 'translateX(0)'
       currentNews.setAttribute('data-delete', 'true')
 
       setTimeout(() => {
-        document.querySelector('main').append(dialogDeleteElm);
-        dialogDeleteElm.showModal();
+        currentNews.closest('.news__content').append(dialogDeleteElm)
+        dialogDeleteElm.showModal()
       }, 100)
-      
-      dialogDeleteElm.querySelector('.delete__article').addEventListener('click', (event) =>{
-        if(event.target){
 
-          //console.log('delete clicked')
+      dialogDeleteElm.querySelector('.delete__article').addEventListener('click', (event) => {
+        if (event.target) {
           const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle)
-          const popularIndex = popularData.findIndex( popular => popular.title === popularTitle);
-          console.log(popularIndex)
-        
+          const popularIndex = popularData.findIndex(popular => popular.title === popularTitle)
+          
           if (categoryIndex !== -1 && categoriesData[categoryIndex].articles[index]) {
-            categoriesData[categoryIndex].articles[index].delete = true
-            currentNews.remove()
-
+            // Mark the article as deleted, but we need to remove it from the array
+            categoriesData[categoryIndex].articles.splice(index, 1) // Remove the article from the array
             saveToLocalStorage('newsCategories', categoriesData)
-            
           } else if (popularIndex !== -1) {
-            popularData[popularIndex].delete = true        
-            currentNews.remove()
+            // Remove from popular data
+            popularData.splice(popularIndex, 1) // Remove the article from the array
             saveToLocalStorage('newsPopular', popularData)
           }
 
+          currentNews.remove() // Also remove the element from the DOM
           dialogDeleteElm.close()
         }
       })
-        
-  
     }
 
-
-   /* -------------------- proceed with save --------------- */ 
+    // Handle Save (Swipe to the right)
     if (movedX > 100) {
+      swipeAction = 'save' // Set action to save if swiped right
 
       swipeContent.style.transform = 'translateX(0)'
       currentNews.setAttribute('data-saved', 'true')
-      //alert("This article is being saved in the archive!");
+      
       setTimeout(() => {
-        document.querySelector('main').append(dialogMessageElm);
-        dialogMessageElm.showModal();
+        document.querySelector('main').append(dialogMessageElm)
+        dialogMessageElm.showModal()
       }, 100)
 
-  
-      const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle);
-      const popularIndex = popularData.findIndex( popular => popular.title === popularTitle)
-      //console.log(categoryIndex)
+      const categoryIndex = categoriesData.findIndex(category => category.section === categoryTitle)
+      const popularIndex = popularData.findIndex(popular => popular.title === popularTitle)
       
       if (categoryIndex !== -1 && categoriesData[categoryIndex].articles[index]) {
-        
         categoriesData[categoryIndex].articles[index].saved = true
         saveToLocalStorage('newsCategories', categoriesData)
-
-      } else if ( popularIndex !== -1){
+      } else if (popularIndex !== -1) {
         popularData[popularIndex].saved = true
         saveToLocalStorage('newsPopular', popularData)
-       
       }
+
+      movedX = 0
+      isSwiping = false
     }
   }
-  movedX = 0
-}  
+
+  // Add this click event listener to ensure we reset any unwanted modal shows
+  swipeContainer.addEventListener('click', (event) => {
+    const currentNews = event.target.closest(".news__content")
+    if (currentNews && !swipeAction) {
+      // If there's no swipe action, just reset and prevent modal show
+      currentNews.removeAttribute('data-delete')
+      currentNews.removeAttribute('data-saved')
+    }
+  })
+}
