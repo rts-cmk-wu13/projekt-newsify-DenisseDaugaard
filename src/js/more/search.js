@@ -49,7 +49,6 @@ export default function search(){
           if (!matchFound) {
                alert('Article not found!')
               }
-          
     })
     
     
