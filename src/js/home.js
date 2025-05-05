@@ -1,7 +1,7 @@
 import '/src/style/style.scss'
 import homeData from './more/home-data.js'
 import darkMode from './more/dark-mode.js'
-import search from './more/home-search.js'
+import search from './more/search.js'
 
 document.querySelector('#app__home').innerHTML = `
 <header>
