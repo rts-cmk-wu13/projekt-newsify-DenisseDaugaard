@@ -42,6 +42,33 @@ export default function newsBody(dataOrigin) {
     swipeSave()
  
 
+    document.querySelectorAll('details').forEach((details) => {
+        const summary = details.querySelector('summary');
+        const content = details.querySelector('.news__content'); // Assuming this is the content you want to animate
+      
+        // Initially set the height of the content to 0
+        content.style.height = '0';
+        content.style.overflow = 'hidden';
+        content.style.transition = 'height 0.5s ease-out';
+      
+        // Add event listener for the `details` element opening and closing
+        summary.addEventListener('click', () => {
+          if (details.hasAttribute('open')) {
+            // Closing the details
+            content.style.height = '0';
+            setTimeout(() => {
+              content.style.display = 'none'; // Hide the content completely after animation ends
+            }, 500); // Match this with the duration of the transition
+          } else {
+            // Opening the details
+            content.style.display = 'block'; // Make sure it's visible
+            const contentHeight = content.scrollHeight + 'px'; // Get the full height of the content
+            content.style.height = contentHeight; // Animate to the full height
+          }
+        });
+      });
+      
+
 
     return articleElm
 }

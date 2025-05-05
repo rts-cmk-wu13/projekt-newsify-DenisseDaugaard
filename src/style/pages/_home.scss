@@ -72,6 +72,7 @@
     
 
     .news__articles{
+        
 
         details > summary::after { 
             content:url('/img/arrow__close.svg');
@@ -168,6 +169,9 @@
 
         }
    
+        .swipe__content:first-of-type{
+            border-top: 1px solid var.$light-grey-color;
+        }
        
     
 
