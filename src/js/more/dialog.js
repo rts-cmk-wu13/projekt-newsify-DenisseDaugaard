@@ -3,17 +3,18 @@ export default function dialogConfirm() {
     confirmDialog.classList.add('dialog__confirm')
     confirmDialog.innerHTML = `
     <p>Are you sure you want to delete this article??</p>
-    <button class="delete__article">Yes I'm sure </button>
-    <button class="not-delete__article">Annuler</button>
+
+    <div class="buttons__container">
+        <button class="delete__article">Yes I'm sure </button>
+        <button class="not-delete__article">Annuller</button>
+    </div>
     `;
 
-    let dialogConf = document.querySelector('.dialog__confirm')
-    dialogConf.showModal()
-
-    dialogConf.querySelector('.not-delete__article').addEventListener('click', (event)=> {
-        event.close()
+    confirmDialog.querySelector('.not-delete__article').addEventListener("click", () => {
+        confirmDialog.close()
     })
-    
+ 
+
     return confirmDialog;
 }
 
@@ -23,11 +24,12 @@ export function dialogMessage() {
 
     messageDialog.innerHTML = `
         <p>This article was saved !</p>
-        <button class="not-delete__article">×</button>
+
+        <button class="not-delete__article">Ok</button>
     `
 
     messageDialog.querySelector(".not-delete__article").addEventListener("click", () => {
-        messageDialog.close();
+        messageDialog.close()
     })
 
     return messageDialog;

@@ -1,5 +1,8 @@
 import saveToLocalStorage from "./local-storage.js"
 import { readFromLocalStorage } from "./local-storage.js"
+import dialogConfirm from "./dialog.js"
+
+
 
 export default function archiveBody(dataOrigin) {
    
@@ -12,8 +15,8 @@ export default function archiveBody(dataOrigin) {
     </header>    
 
       ${dataOrigin.map(newsSaved => `
+      <div class="news__saved__container">
       <a href="${newsSaved.url}">
-        <div class="news__saved__container">
           <figure class="news__saved__img__container">
           <img class="news__saved__img" 
           src="${newsSaved.multimedia?.[1]?.url || '/public/img/fallback.jpg'}" 
@@ -50,18 +53,25 @@ export default function archiveBody(dataOrigin) {
           category.articles.forEach(news => {
             if (news.title === targetNews.title) {
                delete news.saved
+
+
+               let dialogConfirmElm = dialogConfirm()
+               //console.log(dialogConfirmElm);
+               
+               btn.closest('.news__saved__container').append(dialogConfirmElm)
+               dialogConfirmElm.showModal()
+               
+               dialogConfirmElm.querySelector('.delete__article').addEventListener('click', (event)=>{
+                 if(event.target){
+                   dialogConfirmElm.close()
+                   event.target.closest('.news__saved__container').remove()
+                   saveToLocalStorage('newsCategories', allData)
+                 }
+               })
+               
             }
           })
         })
-
-
-        const confirmation =  confirm('You haved delete this Article from My saved News')
-
-        if(confirmation)
-        btn.closest(".news__saved__container").remove() 
-        saveToLocalStorage('newsCategories', allData)
-        //console.log(allData)
-
       })
     })
      
@@ -118,17 +128,23 @@ export function archiveBodyPopular(dataOrigin) {
         allData.forEach(news => {
             if (news.title === targetNews.title) {
                delete news.saved
+               
+               let dialogConfirmElm = dialogConfirm()
+               //console.log(dialogConfirmElm);
+               
+               btn.closest('.news__saved__container').append(dialogConfirmElm)
+               dialogConfirmElm.showModal()
+               
+               dialogConfirmElm.querySelector('.delete__article').addEventListener('click', (event)=>{
+                 if(event.target){
+                   dialogConfirmElm.close()
+                   event.target.closest('.news__saved__container').remove()
+                   saveToLocalStorage('newsPopular', allData)
+                 }
+               })
             }
-          
         })
-
-
-        const confirmation =  confirm('You haved delete this Article from My saved News')
-
-        if(confirmation)
-        btn.closest(".news__saved__container").remove() 
-        saveToLocalStorage('newsPopular', allData)
-        //console.log(allData)
+       
 
       })
     })
