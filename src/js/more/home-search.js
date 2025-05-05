@@ -16,21 +16,23 @@ export default function search(){
         const serchWords = searchBox.value.toLowerCase()
         //console.log(serchWords)
         searchResults.innerHTML = ""
+        let matchFound = false; // Track matches
+
         
 
         news.forEach(newsElm => {
             if (newsElm.textContent.toLowerCase().includes(serchWords)) {
-          
+               matchFound = true;
                searchResults.innerHTML += newsElm.outerHTML
 
                const matchedTitle = searchResults.querySelector(".news__title")?.textContent?.trim()
                console.log(matchedTitle)
-               
 
                categoriesData.forEach(category => {
                 category.articles.forEach(article => {
                   
                   if (article.title === matchedTitle) {
+                        matchFound = true;
                         article.saved = true
                         console.log("Marked as saved:", article)
                         console.log(categoriesData);
@@ -40,8 +42,13 @@ export default function search(){
                 })
               })
 
-            } 
+            }  
+          
           })
+
+          if (!matchFound) {
+               alert('Article not found!')
+              }
           
     })
     
