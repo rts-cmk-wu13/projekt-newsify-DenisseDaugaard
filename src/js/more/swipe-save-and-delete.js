@@ -48,8 +48,11 @@ export default function swipeSave() {
     }
 
     const sectionElem = event.target.closest("section.news__articles")
+    //console.log(sectionElem);
     const popularElm = event.target.closest("div.news__content")
     const categoryTitle = sectionElem?.querySelector(".news__category")?.textContent
+    //console.log(categoryTitle);
+    //console.log(popularTitle);
     const popularTitle = popularElm?.querySelector(".news__pop__title")?.textContent
     const index = parseInt(currentNews?.dataset?.index, 10)
 
@@ -96,7 +99,7 @@ export default function swipeSave() {
       })
     }
 
-    // Handle Save (Swipe to the right)
+    /* ---------------------- start saving action ------------------- */
     if (movedX > 100) {
       swipeAction = 'save' // Set action to save if swiped right
 

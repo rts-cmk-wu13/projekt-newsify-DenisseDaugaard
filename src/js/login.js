@@ -1,5 +1,6 @@
 import '/src/style/style.scss'
 import darkMode from './more/dark-mode.js'
+import { loginDialog } from './more/dialog.js'
 
 
 document.querySelector('#app__login').innerHTML = `
@@ -22,13 +23,28 @@ document.querySelector('#app__login').innerHTML = `
             <span>or</span>
         </div>
 
-        <form  action="settings.html">
+      
         <button class="sigin__btn">Sign in with password</button>
-        </form>
+      
     
         <p>Don’t have an account? <span class="color__text">Sign up</span></p>
    </article>
 </main>
 `
+let loginDilalogElm = loginDialog()
+
+document.querySelector('main').append(loginDilalogElm)
+//console.log(loginDilalogElm);
+
+document.querySelector('.sigin__btn').addEventListener('click', (event) =>{
+    if(event.target){
+        loginDilalogElm.showModal()
+    }
+})
+
+
+
+
+
 
 darkMode()

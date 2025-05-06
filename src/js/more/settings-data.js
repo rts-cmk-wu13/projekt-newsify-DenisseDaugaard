@@ -15,7 +15,7 @@ export default async function settingsData() {
     
      const loadingMessage = document.createElement('div')
      loadingMessage.classList.add('loading__message')
-     loadingMessage.innerHTML = '<h4>Loading data... <i class="fa-solid fa-gear fa-spin"></i></h4>'
+     loadingMessage.innerHTML = '<h4>Loading News... <i class="fa-solid fa-gear fa-spin"></i></h4>'
      document.querySelector('main').append(loadingMessage)
 
     //console.log("Awaiting fetchTopStories API call...");
