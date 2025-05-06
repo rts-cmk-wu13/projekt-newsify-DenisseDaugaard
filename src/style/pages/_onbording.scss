@@ -1,0 +1,82 @@
+@use '/src/style/variables' as var;
+@use '/src/style/mixins' as mix;
+
+
+  
+    button{
+        @include mix.button;
+    }
+    .carousel{
+        height: 100vh;
+        margin-top: 2rem;
+        position: relative;
+        z-index: 1; //
+        .carousel__card {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            padding: 0 1rem;
+           .background__img__container{
+            position: relative;
+        
+           }
+            .carousel__text{
+                position: absolute;
+                bottom: 0;
+                padding: 2rem 1rem 5rem;
+                text-align: center;
+                >*{
+                    margin-bottom: 1rem;
+                }
+              }
+          }
+          
+         
+          .carousel__card--active {
+            // position: relative;
+            opacity: 1;
+          }
+         
+
+        .dots{
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            position: absolute;
+           top: 75%;
+            width: 100%;
+            .carousel__dot{
+                width: 1rem;
+                height: 1rem;
+                background-color:var.$dot-color;
+                border-radius: 50%;
+            }
+            .carousel__dot--active{
+                width: 4.125rem;
+                border-radius: 2rem;
+                background-color: var.$secundary-color;
+            }
+        }
+
+
+        &__btns{
+            display: flex;
+            justify-content:center;
+            gap: 1rem;
+            position: absolute;
+            top: 82%;
+            width: 100%;
+            
+           .skip{
+               border: 1px solid var.$secundary-color ;
+               color:var.$secundary-color;
+               width: 10rem;
+               border-radius: 1.5rem;
+           }
+
+           .continue{
+            @include mix.greenBtn;
+            border-radius: 1.5rem;
+           }
+        }
+    }

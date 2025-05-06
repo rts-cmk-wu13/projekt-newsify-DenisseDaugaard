@@ -1,0 +1,72 @@
+
+@use '/src/style/variables' as var;
+
+$dark-color:hsl(0, 0%, 13%);
+$light-color:white;
+
+
+
+html {
+    color-scheme: light dark;
+}
+
+[data-dark= "true"]{
+    color-scheme: dark;  
+}
+
+[data-dark= "false"] {
+    color-scheme: light;
+}
+
+
+html,
+h1,h2,h3,
+h4,h5,h6,p,
+main .settings__subtitle,
+.carousel__text,
+.welcome,
+input,
+a,
+textarea{
+    color: light-dark($dark-color, var.$light-grey-color);
+    background-color: light-dark($light-color, $dark-color);
+}
+
+a {
+    color: light-dark($dark-color, $light-color);
+}
+
+
+[data-dark= "true"] .footer__logo{
+    filter: brightness(0) saturate(100%) 
+    invert(91%) sepia(0%) saturate(0%) 
+    hue-rotate(0deg) brightness(96%) 
+    contrast(88%);
+}
+
+[data-dark="false"] .welcome__title {
+    background-image: linear-gradient(var.$primary-color, var.$primary-color);
+  }
+  
+  [data-dark="true"] .welcome__title {
+    background-image: linear-gradient(var.$light-grey-color, var.$light-grey-color); // Or white
+  }
+
+  [data-dark="true"] .welcome__title {
+    animation: backcolorDark 3s linear 1 forwards;
+  }
+
+  
+  [data-dark="true"] .no__saved__news {
+    color: $light-color;
+  }
+  
+  [data-dark="false"] .no__saved__news {
+    color: $dark-color;
+  }
+
+  
+  
+
+
+
