@@ -1,5 +1,6 @@
 
 import checkBox from "./checkbox.js";
+import darkMode from "./dark-mode.js";
 
 export default function settingsList(dataOrigin) {
   
@@ -27,5 +28,6 @@ export default function settingsList(dataOrigin) {
     document.querySelector("main").append(articleElm)
     
     checkBox()
+    darkMode()
    
 }
