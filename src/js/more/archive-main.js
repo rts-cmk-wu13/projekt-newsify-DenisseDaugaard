@@ -112,9 +112,7 @@ export function archiveBodyPopular(dataOrigin) {
     const currentData = dataOrigin.flatMap(news => news)
     //console.log(currentData);
     const allDeleteBtns = articleElm.querySelectorAll('.achive__delete__btn')
-
     //console.log(currentData);
-    
     const allData = readFromLocalStorage('newsPopular')
     
       allDeleteBtns.forEach((btn, index) => {
@@ -124,14 +122,12 @@ export function archiveBodyPopular(dataOrigin) {
         
         const targetNews = currentData[index];
         //console.log(targetNews);
-        
         allData.forEach(news => {
             if (news.title === targetNews.title) {
                delete news.saved
                
                let dialogConfirmElm = dialogConfirm()
                //console.log(dialogConfirmElm);
-               
                btn.closest('.news__saved__container').append(dialogConfirmElm)
                dialogConfirmElm.showModal()
                

@@ -1,3 +1,7 @@
+import saveToLocalStorage from "./local-storage.js";
+import { readFromLocalStorage } from "./local-storage.js";
+
+
 export default function dialogConfirm() {
     let confirmDialog = document.createElement("dialog");
     confirmDialog.classList.add('dialog__confirm')
@@ -35,3 +39,43 @@ export function dialogMessage() {
     return messageDialog;
 }
 
+
+export function loginDialog(){
+  
+        let loginElm = document.createElement("dialog");
+        loginElm.classList.add('login__dialog')
+        loginElm.innerHTML = `
+
+        <form class="login__form" action="settings.html">
+         <h4>Please insert your data to Sign In!</h4>
+         <input id="username" type="text" name="username"placeholder="Username">
+         <input id="password" type="password" name="pass"  placeholder="Password">
+         <button class="login__button">Sign In</button>
+         </form>
+        `;
+
+        let form = loginElm.querySelector('form')
+        let userName =  form.querySelector('#username')
+        let password =  form.querySelector('#password')
+        //console.log(userName);
+       
+        
+
+        loginElm.querySelector('.login__button').addEventListener('click', (event) => {
+            event.preventDefault ()
+
+            if ( userName.value !== '' && password.value !== '') {
+                console.log('info saved');
+                saveToLocalStorage('userName', userName.value)
+                saveToLocalStorage('password', password.value)
+                
+                window.location.href = "settings.html"
+            }
+
+            loginElm.close()
+        });
+        
+
+        return loginElm;
+
+}

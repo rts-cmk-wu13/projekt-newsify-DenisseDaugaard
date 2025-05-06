@@ -8,7 +8,6 @@ export default function search(){
     const searchBox = document.querySelector('.search__box')
     const news = document.querySelectorAll(".news__content")
     const searchResults = document.querySelector('.search__results')
-
     const categoriesData = readFromLocalStorage('newsCategories')
     
     
@@ -19,7 +18,6 @@ export default function search(){
         //console.log(serchWords)
         searchResults.innerHTML = ""
         let matchFound = false; // Track matches
-
         
 
         news.forEach(newsElm => {
@@ -28,7 +26,7 @@ export default function search(){
                searchResults.innerHTML += newsElm.outerHTML
 
                const matchedTitle = searchResults.querySelector(".news__title")?.textContent?.trim()
-               console.log(matchedTitle)
+               //console.log(matchedTitle)
 
                categoriesData.forEach(category => {
                 category.articles.forEach(article => {
@@ -36,25 +34,20 @@ export default function search(){
                   if (article.title === matchedTitle) {
                         matchFound = true;
                         article.saved = true
-                        console.log("Marked as saved:", article)
-                        console.log(categoriesData);
+                        //console.log("Marked as saved:", article)
+                        //console.log(categoriesData);
                         saveToLocalStorage('newsCategories', categoriesData)
                   }
-                  
                 })
               })
-
             }  
-          
           })
 
           if (!matchFound) {
             let message = dialogMessage()
             document.querySelector('main').append(message)
-            message.querySelector('p').innerHTML = 'Article not found'
+            message.querySelector('p').innerHTML = 'Match not found'
               message.showModal()
               }
-    })
-    
-    
+    })   
 }
