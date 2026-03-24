@@ -10,7 +10,7 @@ export default  async  function newYorkTimes() {
       "science","sports","sundayreview","technology","theater",
       "t-magazine","travel","upshot","us","world"]
     
-    const apiKey = '7AfIlWjRMps6WnJ6UEhv3UDuoO5pigTz';
+    const apiKey = 'B8sd9PrAENDgp1JKxFgvCh0ju7EpAmOAFem9XUrfMd3cYxhf';
 
     const results = [];
   
