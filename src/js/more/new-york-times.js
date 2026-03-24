@@ -36,7 +36,7 @@ export default  async  function newYorkTimes() {
 export async function popularNews (){
 
   const period = 7
-  const apiKey = '7AfIlWjRMps6WnJ6UEhv3UDuoO5pigTz';
+  const apiKey = 'B8sd9PrAENDgp1JKxFgvCh0ju7EpAmOAFem9XUrfMd3cYxhf';
   const url = `https://api.nytimes.com/svc/mostpopular/v2/viewed/${period}.json?api-key=${apiKey}`
 
   
