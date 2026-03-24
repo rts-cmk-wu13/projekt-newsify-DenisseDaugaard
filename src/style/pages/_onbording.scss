@@ -10,11 +10,11 @@
         height: 100vh;
         margin-top: 2rem;
         position: relative;
-        margin-inline:auto;
         z-index: 1; //
         .carousel__card {
             position: absolute;
-          left:50%;
+            left:50%;
+            transform:translateX(-50%);
             opacity: 0;
             transition: opacity 0.5s ease;
             padding: 0 1rem;
