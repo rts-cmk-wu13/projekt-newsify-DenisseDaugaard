@@ -6,32 +6,50 @@
     button{
         @include mix.button;
     }
-    .carousel{
-        height: 100vh;
-        margin-top: 2rem;
-        position: relative;
-        z-index: 1; //
-        .carousel__card {
-            position: absolute;
-            left:50%;
-            transform:translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            padding: 0 1rem;
-           .background__img__container{
-            position: relative;
-        
-           }
-            .carousel__text{
-                position: absolute;
-                bottom: 0;
-                padding: 2rem 1rem 5rem;
-                text-align: center;
-                >*{
-                    margin-bottom: 1rem;
-                }
-              }
-          }
+    .carousel {
+  height: 100vh;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel .carousel__card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  width: 100%;
+  max-width: 420px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.carousel .carousel__card .background__img__container {
+  position: relative;
+  width: 100%;
+}
+
+.carousel .carousel__card .background__img__container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel .carousel__card .carousel__text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 1rem 5rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.carousel .carousel__card .carousel__text > * {
+  margin-bottom: 1rem;
+}
           
          
           .carousel__card--active {
