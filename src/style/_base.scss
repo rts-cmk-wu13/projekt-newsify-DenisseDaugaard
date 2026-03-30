@@ -1,0 +1,57 @@
+@use '/src/style/variables' as var;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: auto;   // or 'initial'
+    height: auto;     // also important!
+  }
+  
+
+    body{
+        font-family: 'OpenSans';
+        color:var.$primary-color;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .welcome__title{
+    font-family: 'PlayfairDisplay';
+    }
+
+    input{
+        font-family:'OpenSans';
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+   
+
+    a{
+        text-decoration: none;
+    }
+
+    a.active{
+        p{
+            color:green;
+        }
+
+        img.footer__logo {
+            filter: brightness(0) saturate(100%) 
+            invert(39%) sepia(98%) saturate(686%) 
+            hue-rotate(81deg) brightness(92%) 
+            contrast(86%);
+        }
+    }
